@@ -1,0 +1,2181 @@
+{
+    "Orders\\Infra\\EventPublisher": {
+        "name": "Orders\\Infra\\EventPublisher",
+        "interface": false,
+        "abstract": false,
+        "final": false,
+        "methods": [
+            {
+                "name": "publish",
+                "role": null,
+                "public": true,
+                "private": false,
+                "_type": "Hal\\Metric\\FunctionMetric"
+            }
+        ],
+        "nbMethodsIncludingGettersSetters": 1,
+        "nbMethods": 1,
+        "nbMethodsPrivate": 0,
+        "nbMethodsPublic": 1,
+        "nbMethodsGetter": 0,
+        "nbMethodsSetters": 0,
+        "wmc": 2,
+        "ccn": 2,
+        "ccnMethodMax": 2,
+        "externals": [
+            "Orders\\Ports\\Outbound\\EventPublisherInterface"
+        ],
+        "parents": [],
+        "implements": [
+            "Orders\\Ports\\Outbound\\EventPublisherInterface"
+        ],
+        "lcom": 1,
+        "length": 20,
+        "vocabulary": 12,
+        "volume": 71.7,
+        "difficulty": 1.7,
+        "effort": 121.89,
+        "level": 0.59,
+        "bugs": 0.02,
+        "time": 7,
+        "intelligentContent": 42.18,
+        "number_operators": 3,
+        "number_operands": 17,
+        "number_operators_unique": 2,
+        "number_operands_unique": 10,
+        "cloc": 0,
+        "loc": 11,
+        "lloc": 11,
+        "mi": 64.02,
+        "mIwoC": 64.02,
+        "commentWeight": 0,
+        "kanDefect": 0.15,
+        "relativeStructuralComplexity": 1,
+        "relativeDataComplexity": 0.5,
+        "relativeSystemComplexity": 1.5,
+        "totalStructuralComplexity": 1,
+        "totalDataComplexity": 0.5,
+        "totalSystemComplexity": 1.5,
+        "package": "Orders\\Infra\\",
+        "pageRank": 0.01,
+        "afferentCoupling": 0,
+        "efferentCoupling": 1,
+        "instability": 1,
+        "violations": {},
+        "_type": "Hal\\Metric\\ClassMetric"
+    },
+    "Orders\\Infra\\": {
+        "name": "Orders\\Infra\\",
+        "classes": [
+            "Orders\\Infra\\EventPublisher"
+        ],
+        "outgoing_class_dependencies": [
+            "Orders\\Ports\\Outbound\\EventPublisherInterface"
+        ],
+        "outgoing_package_dependencies": [
+            "Orders\\Ports\\Outbound\\"
+        ],
+        "abstraction": 0,
+        "instability": 1,
+        "dependent_instabilities": {
+            "Orders\\Ports\\Outbound\\": 0.125
+        },
+        "distance": 0,
+        "normalized_distance": 0,
+        "violations": {},
+        "_type": "Hal\\Metric\\PackageMetric"
+    },
+    "Orders\\Infra\\Http\\ProductsClient": {
+        "name": "Orders\\Infra\\Http\\ProductsClient",
+        "interface": false,
+        "abstract": false,
+        "final": false,
+        "methods": [
+            {
+                "name": "__construct",
+                "role": null,
+                "public": true,
+                "private": false,
+                "_type": "Hal\\Metric\\FunctionMetric"
+            },
+            {
+                "name": "reserveProducts",
+                "role": null,
+                "public": true,
+                "private": false,
+                "_type": "Hal\\Metric\\FunctionMetric"
+            },
+            {
+                "name": "releaseReservation",
+                "role": null,
+                "public": true,
+                "private": false,
+                "_type": "Hal\\Metric\\FunctionMetric"
+            }
+        ],
+        "nbMethodsIncludingGettersSetters": 3,
+        "nbMethods": 3,
+        "nbMethodsPrivate": 0,
+        "nbMethodsPublic": 3,
+        "nbMethodsGetter": 0,
+        "nbMethodsSetters": 0,
+        "wmc": 5,
+        "ccn": 3,
+        "ccnMethodMax": 2,
+        "externals": [
+            "Orders\\Ports\\Outbound\\ProductsServiceInterface",
+            "GuzzleHttp\\Client",
+            "Orders\\Adapters\\Outbound\\ProductsAdapter",
+            "Orders\\Adapters\\Outbound\\ProductsAdapter",
+            "Orders\\Adapters\\Outbound\\ProductsAdapter"
+        ],
+        "parents": [],
+        "implements": [
+            "Orders\\Ports\\Outbound\\ProductsServiceInterface"
+        ],
+        "lcom": 1,
+        "length": 55,
+        "vocabulary": 26,
+        "volume": 258.52,
+        "difficulty": 3.82,
+        "effort": 987.09,
+        "level": 0.26,
+        "bugs": 0.09,
+        "time": 55,
+        "intelligentContent": 67.71,
+        "number_operators": 13,
+        "number_operands": 42,
+        "number_operators_unique": 4,
+        "number_operands_unique": 22,
+        "cloc": 0,
+        "loc": 29,
+        "lloc": 29,
+        "mi": 50.8,
+        "mIwoC": 50.8,
+        "commentWeight": 0,
+        "kanDefect": 0.15,
+        "relativeStructuralComplexity": 64,
+        "relativeDataComplexity": 0.59,
+        "relativeSystemComplexity": 64.59,
+        "totalStructuralComplexity": 192,
+        "totalDataComplexity": 1.78,
+        "totalSystemComplexity": 193.78,
+        "package": "Orders\\Infra\\Http\\",
+        "pageRank": 0.01,
+        "afferentCoupling": 0,
+        "efferentCoupling": 3,
+        "instability": 1,
+        "violations": {},
+        "_type": "Hal\\Metric\\ClassMetric"
+    },
+    "Orders\\Infra\\Http\\": {
+        "name": "Orders\\Infra\\Http\\",
+        "classes": [
+            "Orders\\Infra\\Http\\ProductsClient"
+        ],
+        "outgoing_class_dependencies": [
+            "Orders\\Ports\\Outbound\\ProductsServiceInterface",
+            "GuzzleHttp\\Client",
+            "Orders\\Adapters\\Outbound\\ProductsAdapter"
+        ],
+        "outgoing_package_dependencies": [
+            "Orders\\Ports\\Outbound\\",
+            "GuzzleHttp\\",
+            "Orders\\Adapters\\Outbound\\"
+        ],
+        "abstraction": 0,
+        "instability": 1,
+        "dependent_instabilities": {
+            "Orders\\Ports\\Outbound\\": 0.125,
+            "Orders\\Adapters\\Outbound\\": 0.14285714285714285
+        },
+        "distance": 0,
+        "normalized_distance": 0,
+        "violations": {},
+        "_type": "Hal\\Metric\\PackageMetric"
+    },
+    "Orders\\Infra\\Http\\Handlers\\CloseOrderHandler": {
+        "name": "Orders\\Infra\\Http\\Handlers\\CloseOrderHandler",
+        "interface": false,
+        "abstract": false,
+        "final": false,
+        "methods": [
+            {
+                "name": "__construct",
+                "role": null,
+                "public": true,
+                "private": false,
+                "_type": "Hal\\Metric\\FunctionMetric"
+            },
+            {
+                "name": "__invoke",
+                "role": null,
+                "public": true,
+                "private": false,
+                "_type": "Hal\\Metric\\FunctionMetric"
+            }
+        ],
+        "nbMethodsIncludingGettersSetters": 2,
+        "nbMethods": 2,
+        "nbMethodsPrivate": 0,
+        "nbMethodsPublic": 2,
+        "nbMethodsGetter": 0,
+        "nbMethodsSetters": 0,
+        "wmc": 3,
+        "ccn": 2,
+        "ccnMethodMax": 2,
+        "externals": [
+            "Orders\\Ports\\Inbound\\CloseOrderUseCase",
+            "Psr\\Http\\Message\\ResponseInterface",
+            "Psr\\Http\\Message\\ServerRequestInterface",
+            "Psr\\Http\\Message\\ResponseInterface",
+            "Orders\\Adapters\\Inbound\\OrderAdapter",
+            "Orders\\Adapters\\Outbound\\OrderAdapter"
+        ],
+        "parents": [],
+        "implements": [],
+        "lcom": 2,
+        "length": 36,
+        "vocabulary": 19,
+        "volume": 152.93,
+        "difficulty": 2.81,
+        "effort": 430.1,
+        "level": 0.36,
+        "bugs": 0.05,
+        "time": 24,
+        "intelligentContent": 54.37,
+        "number_operators": 6,
+        "number_operands": 30,
+        "number_operators_unique": 3,
+        "number_operands_unique": 16,
+        "cloc": 0,
+        "loc": 19,
+        "lloc": 19,
+        "mi": 56.54,
+        "mIwoC": 56.54,
+        "commentWeight": 0,
+        "kanDefect": 0.22,
+        "relativeStructuralComplexity": 64,
+        "relativeDataComplexity": 0.39,
+        "relativeSystemComplexity": 64.39,
+        "totalStructuralComplexity": 128,
+        "totalDataComplexity": 0.78,
+        "totalSystemComplexity": 128.78,
+        "package": "Orders\\Infra\\Http\\Handlers\\",
+        "pageRank": 0.01,
+        "afferentCoupling": 0,
+        "efferentCoupling": 5,
+        "instability": 1,
+        "violations": {},
+        "_type": "Hal\\Metric\\ClassMetric"
+    },
+    "Orders\\Infra\\Http\\Handlers\\": {
+        "name": "Orders\\Infra\\Http\\Handlers\\",
+        "classes": [
+            "Orders\\Infra\\Http\\Handlers\\CloseOrderHandler",
+            "Orders\\Infra\\Http\\Handlers\\GetOrderHandler",
+            "Orders\\Infra\\Http\\Handlers\\UpdateStatusHandler",
+            "Orders\\Infra\\Http\\Handlers\\ListOrdersHandler"
+        ],
+        "outgoing_class_dependencies": [
+            "Orders\\Ports\\Inbound\\CloseOrderUseCase",
+            "Psr\\Http\\Message\\ResponseInterface",
+            "Psr\\Http\\Message\\ServerRequestInterface",
+            "Orders\\Adapters\\Inbound\\OrderAdapter",
+            "Orders\\Adapters\\Outbound\\OrderAdapter",
+            "Orders\\Ports\\Inbound\\GetOrderUseCase",
+            "Orders\\Ports\\Inbound\\UpdateOrderStatusUseCase",
+            "Orders\\Ports\\Inbound\\ListOrdersUseCase"
+        ],
+        "outgoing_package_dependencies": [
+            "Orders\\Ports\\Inbound\\",
+            "Psr\\Http\\Message\\",
+            "Orders\\Adapters\\Inbound\\",
+            "Orders\\Adapters\\Outbound\\"
+        ],
+        "abstraction": 0,
+        "instability": 1,
+        "dependent_instabilities": {
+            "Orders\\Ports\\Inbound\\": 0.6363636363636364,
+            "Orders\\Adapters\\Inbound\\": 0.7142857142857143,
+            "Orders\\Adapters\\Outbound\\": 0.14285714285714285
+        },
+        "distance": 0,
+        "normalized_distance": 0,
+        "violations": {},
+        "_type": "Hal\\Metric\\PackageMetric"
+    },
+    "Orders\\Infra\\Http\\Handlers\\GetOrderHandler": {
+        "name": "Orders\\Infra\\Http\\Handlers\\GetOrderHandler",
+        "interface": false,
+        "abstract": false,
+        "final": false,
+        "methods": [
+            {
+                "name": "__construct",
+                "role": null,
+                "public": true,
+                "private": false,
+                "_type": "Hal\\Metric\\FunctionMetric"
+            },
+            {
+                "name": "__invoke",
+                "role": null,
+                "public": true,
+                "private": false,
+                "_type": "Hal\\Metric\\FunctionMetric"
+            }
+        ],
+        "nbMethodsIncludingGettersSetters": 2,
+        "nbMethods": 2,
+        "nbMethodsPrivate": 0,
+        "nbMethodsPublic": 2,
+        "nbMethodsGetter": 0,
+        "nbMethodsSetters": 0,
+        "wmc": 3,
+        "ccn": 2,
+        "ccnMethodMax": 2,
+        "externals": [
+            "Orders\\Ports\\Inbound\\GetOrderUseCase",
+            "Psr\\Http\\Message\\ResponseInterface",
+            "Psr\\Http\\Message\\ServerRequestInterface",
+            "Psr\\Http\\Message\\ResponseInterface",
+            "Orders\\Adapters\\Outbound\\OrderAdapter"
+        ],
+        "parents": [],
+        "implements": [],
+        "lcom": 2,
+        "length": 33,
+        "vocabulary": 18,
+        "volume": 137.61,
+        "difficulty": 2.8,
+        "effort": 385.3,
+        "level": 0.36,
+        "bugs": 0.05,
+        "time": 21,
+        "intelligentContent": 49.15,
+        "number_operators": 5,
+        "number_operands": 28,
+        "number_operators_unique": 3,
+        "number_operands_unique": 15,
+        "cloc": 0,
+        "loc": 18,
+        "lloc": 18,
+        "mi": 57.37,
+        "mIwoC": 57.37,
+        "commentWeight": 0,
+        "kanDefect": 0.22,
+        "relativeStructuralComplexity": 36,
+        "relativeDataComplexity": 0.57,
+        "relativeSystemComplexity": 36.57,
+        "totalStructuralComplexity": 72,
+        "totalDataComplexity": 1.14,
+        "totalSystemComplexity": 73.14,
+        "package": "Orders\\Infra\\Http\\Handlers\\",
+        "pageRank": 0.01,
+        "afferentCoupling": 0,
+        "efferentCoupling": 4,
+        "instability": 1,
+        "violations": {},
+        "_type": "Hal\\Metric\\ClassMetric"
+    },
+    "Orders\\Infra\\Http\\Handlers\\UpdateStatusHandler": {
+        "name": "Orders\\Infra\\Http\\Handlers\\UpdateStatusHandler",
+        "interface": false,
+        "abstract": false,
+        "final": false,
+        "methods": [
+            {
+                "name": "__construct",
+                "role": null,
+                "public": true,
+                "private": false,
+                "_type": "Hal\\Metric\\FunctionMetric"
+            },
+            {
+                "name": "__invoke",
+                "role": null,
+                "public": true,
+                "private": false,
+                "_type": "Hal\\Metric\\FunctionMetric"
+            }
+        ],
+        "nbMethodsIncludingGettersSetters": 2,
+        "nbMethods": 2,
+        "nbMethodsPrivate": 0,
+        "nbMethodsPublic": 2,
+        "nbMethodsGetter": 0,
+        "nbMethodsSetters": 0,
+        "wmc": 4,
+        "ccn": 3,
+        "ccnMethodMax": 3,
+        "externals": [
+            "Orders\\Ports\\Inbound\\UpdateOrderStatusUseCase",
+            "Psr\\Http\\Message\\ResponseInterface",
+            "Psr\\Http\\Message\\ServerRequestInterface",
+            "Psr\\Http\\Message\\ResponseInterface",
+            "Orders\\Adapters\\Outbound\\OrderAdapter"
+        ],
+        "parents": [],
+        "implements": [],
+        "lcom": 2,
+        "length": 45,
+        "vocabulary": 25,
+        "volume": 208.97,
+        "difficulty": 3.52,
+        "effort": 736.38,
+        "level": 0.28,
+        "bugs": 0.07,
+        "time": 41,
+        "intelligentContent": 59.3,
+        "number_operators": 8,
+        "number_operands": 37,
+        "number_operators_unique": 4,
+        "number_operands_unique": 21,
+        "cloc": 0,
+        "loc": 20,
+        "lloc": 20,
+        "mi": 54.97,
+        "mIwoC": 54.97,
+        "commentWeight": 0,
+        "kanDefect": 0.22,
+        "relativeStructuralComplexity": 49,
+        "relativeDataComplexity": 0.5,
+        "relativeSystemComplexity": 49.5,
+        "totalStructuralComplexity": 98,
+        "totalDataComplexity": 1,
+        "totalSystemComplexity": 99,
+        "package": "Orders\\Infra\\Http\\Handlers\\",
+        "pageRank": 0.01,
+        "afferentCoupling": 0,
+        "efferentCoupling": 4,
+        "instability": 1,
+        "violations": {},
+        "_type": "Hal\\Metric\\ClassMetric"
+    },
+    "Orders\\Infra\\Http\\Handlers\\ListOrdersHandler": {
+        "name": "Orders\\Infra\\Http\\Handlers\\ListOrdersHandler",
+        "interface": false,
+        "abstract": false,
+        "final": false,
+        "methods": [
+            {
+                "name": "__construct",
+                "role": null,
+                "public": true,
+                "private": false,
+                "_type": "Hal\\Metric\\FunctionMetric"
+            },
+            {
+                "name": "__invoke",
+                "role": null,
+                "public": true,
+                "private": false,
+                "_type": "Hal\\Metric\\FunctionMetric"
+            }
+        ],
+        "nbMethodsIncludingGettersSetters": 2,
+        "nbMethods": 2,
+        "nbMethodsPrivate": 0,
+        "nbMethodsPublic": 2,
+        "nbMethodsGetter": 0,
+        "nbMethodsSetters": 0,
+        "wmc": 2,
+        "ccn": 1,
+        "ccnMethodMax": 1,
+        "externals": [
+            "Orders\\Ports\\Inbound\\ListOrdersUseCase",
+            "Psr\\Http\\Message\\ResponseInterface",
+            "Psr\\Http\\Message\\ServerRequestInterface",
+            "Psr\\Http\\Message\\ResponseInterface",
+            "Orders\\Adapters\\Outbound\\OrderAdapter"
+        ],
+        "parents": [],
+        "implements": [],
+        "lcom": 2,
+        "length": 15,
+        "vocabulary": 11,
+        "volume": 51.89,
+        "difficulty": 1.44,
+        "effort": 74.95,
+        "level": 0.69,
+        "bugs": 0.02,
+        "time": 4,
+        "intelligentContent": 35.92,
+        "number_operators": 2,
+        "number_operands": 13,
+        "number_operators_unique": 2,
+        "number_operands_unique": 9,
+        "cloc": 0,
+        "loc": 13,
+        "lloc": 13,
+        "mi": 63.56,
+        "mIwoC": 63.56,
+        "commentWeight": 0,
+        "kanDefect": 0.15,
+        "relativeStructuralComplexity": 36,
+        "relativeDataComplexity": 0.36,
+        "relativeSystemComplexity": 36.36,
+        "totalStructuralComplexity": 72,
+        "totalDataComplexity": 0.71,
+        "totalSystemComplexity": 72.71,
+        "package": "Orders\\Infra\\Http\\Handlers\\",
+        "pageRank": 0.01,
+        "afferentCoupling": 0,
+        "efferentCoupling": 4,
+        "instability": 1,
+        "violations": {},
+        "_type": "Hal\\Metric\\ClassMetric"
+    },
+    "Orders\\Infra\\Persistence\\Database": {
+        "name": "Orders\\Infra\\Persistence\\Database",
+        "interface": false,
+        "abstract": false,
+        "final": false,
+        "methods": [
+            {
+                "name": "__construct",
+                "role": null,
+                "public": true,
+                "private": false,
+                "_type": "Hal\\Metric\\FunctionMetric"
+            },
+            {
+                "name": "getPdo",
+                "role": "getter",
+                "_type": "Hal\\Metric\\FunctionMetric"
+            },
+            {
+                "name": "createTables",
+                "role": null,
+                "public": true,
+                "private": false,
+                "_type": "Hal\\Metric\\FunctionMetric"
+            }
+        ],
+        "nbMethodsIncludingGettersSetters": 3,
+        "nbMethods": 2,
+        "nbMethodsPrivate": 0,
+        "nbMethodsPublic": 2,
+        "nbMethodsGetter": 1,
+        "nbMethodsSetters": 0,
+        "wmc": 2,
+        "ccn": 1,
+        "ccnMethodMax": 1,
+        "externals": [
+            "PDO",
+            "PDO"
+        ],
+        "parents": [],
+        "implements": [],
+        "lcom": 1,
+        "length": 24,
+        "vocabulary": 13,
+        "volume": 88.81,
+        "difficulty": 1.82,
+        "effort": 161.47,
+        "level": 0.55,
+        "bugs": 0.03,
+        "time": 9,
+        "intelligentContent": 48.85,
+        "number_operators": 4,
+        "number_operands": 20,
+        "number_operators_unique": 2,
+        "number_operands_unique": 11,
+        "cloc": 0,
+        "loc": 19,
+        "lloc": 19,
+        "mi": 58.33,
+        "mIwoC": 58.33,
+        "commentWeight": 0,
+        "kanDefect": 0.15,
+        "relativeStructuralComplexity": 1,
+        "relativeDataComplexity": 0.67,
+        "relativeSystemComplexity": 1.67,
+        "totalStructuralComplexity": 3,
+        "totalDataComplexity": 2,
+        "totalSystemComplexity": 5,
+        "package": "Orders\\Infra\\Persistence\\",
+        "pageRank": 0.01,
+        "afferentCoupling": 0,
+        "efferentCoupling": 1,
+        "instability": 1,
+        "violations": {},
+        "_type": "Hal\\Metric\\ClassMetric"
+    },
+    "Orders\\Infra\\Persistence\\": {
+        "name": "Orders\\Infra\\Persistence\\",
+        "classes": [
+            "Orders\\Infra\\Persistence\\Database",
+            "Orders\\Infra\\Persistence\\OrderRepository"
+        ],
+        "outgoing_class_dependencies": [
+            "PDO",
+            "Orders\\Ports\\Outbound\\OrderRepositoryInterface",
+            "Orders\\Domain\\Entities\\Order",
+            "Orders\\Adapters\\Outbound\\OrderAdapter",
+            "Orders\\Adapters\\Inbound\\OrderAdapter"
+        ],
+        "outgoing_package_dependencies": [
+            "\\",
+            "Orders\\Ports\\Outbound\\",
+            "Orders\\Domain\\Entities\\",
+            "Orders\\Adapters\\Outbound\\",
+            "Orders\\Adapters\\Inbound\\"
+        ],
+        "abstraction": 0,
+        "instability": 1,
+        "dependent_instabilities": {
+            "Orders\\Ports\\Outbound\\": 0.125,
+            "Orders\\Domain\\Entities\\": 0.4166666666666667,
+            "Orders\\Adapters\\Outbound\\": 0.14285714285714285,
+            "Orders\\Adapters\\Inbound\\": 0.7142857142857143
+        },
+        "distance": 0,
+        "normalized_distance": 0,
+        "violations": {},
+        "_type": "Hal\\Metric\\PackageMetric"
+    },
+    "Orders\\Infra\\Persistence\\OrderRepository": {
+        "name": "Orders\\Infra\\Persistence\\OrderRepository",
+        "interface": false,
+        "abstract": false,
+        "final": false,
+        "methods": [
+            {
+                "name": "__construct",
+                "role": null,
+                "public": true,
+                "private": false,
+                "_type": "Hal\\Metric\\FunctionMetric"
+            },
+            {
+                "name": "save",
+                "role": null,
+                "public": true,
+                "private": false,
+                "_type": "Hal\\Metric\\FunctionMetric"
+            },
+            {
+                "name": "findById",
+                "role": null,
+                "public": true,
+                "private": false,
+                "_type": "Hal\\Metric\\FunctionMetric"
+            },
+            {
+                "name": "update",
+                "role": null,
+                "public": true,
+                "private": false,
+                "_type": "Hal\\Metric\\FunctionMetric"
+            },
+            {
+                "name": "listAll",
+                "role": null,
+                "public": true,
+                "private": false,
+                "_type": "Hal\\Metric\\FunctionMetric"
+            }
+        ],
+        "nbMethodsIncludingGettersSetters": 5,
+        "nbMethods": 5,
+        "nbMethodsPrivate": 0,
+        "nbMethodsPublic": 5,
+        "nbMethodsGetter": 0,
+        "nbMethodsSetters": 0,
+        "wmc": 7,
+        "ccn": 3,
+        "ccnMethodMax": 2,
+        "externals": [
+            "Orders\\Ports\\Outbound\\OrderRepositoryInterface",
+            "PDO",
+            "Orders\\Domain\\Entities\\Order",
+            "Orders\\Adapters\\Outbound\\OrderAdapter",
+            "Orders\\Adapters\\Inbound\\OrderAdapter",
+            "Orders\\Domain\\Entities\\Order",
+            "Orders\\Adapters\\Outbound\\OrderAdapter",
+            "Orders\\Adapters\\Inbound\\OrderAdapter"
+        ],
+        "parents": [],
+        "implements": [
+            "Orders\\Ports\\Outbound\\OrderRepositoryInterface"
+        ],
+        "lcom": 2,
+        "length": 86,
+        "vocabulary": 26,
+        "volume": 404.24,
+        "difficulty": 7.86,
+        "effort": 3176.15,
+        "level": 0.13,
+        "bugs": 0.13,
+        "time": 176,
+        "intelligentContent": 51.45,
+        "number_operators": 20,
+        "number_operands": 66,
+        "number_operators_unique": 5,
+        "number_operands_unique": 21,
+        "cloc": 0,
+        "loc": 42,
+        "lloc": 42,
+        "mi": 45.94,
+        "mIwoC": 45.94,
+        "commentWeight": 0,
+        "kanDefect": 0.45,
+        "relativeStructuralComplexity": 36,
+        "relativeDataComplexity": 0.54,
+        "relativeSystemComplexity": 36.54,
+        "totalStructuralComplexity": 180,
+        "totalDataComplexity": 2.71,
+        "totalSystemComplexity": 182.71,
+        "package": "Orders\\Infra\\Persistence\\",
+        "pageRank": 0.01,
+        "afferentCoupling": 0,
+        "efferentCoupling": 5,
+        "instability": 1,
+        "violations": {},
+        "_type": "Hal\\Metric\\ClassMetric"
+    },
+    "Orders\\Adapters\\Inbound\\OrderAdapter": {
+        "name": "Orders\\Adapters\\Inbound\\OrderAdapter",
+        "interface": false,
+        "abstract": false,
+        "final": false,
+        "methods": [
+            {
+                "name": "jsonToOrderData",
+                "role": null,
+                "public": true,
+                "private": false,
+                "_type": "Hal\\Metric\\FunctionMetric"
+            },
+            {
+                "name": "dbToOrder",
+                "role": null,
+                "public": true,
+                "private": false,
+                "_type": "Hal\\Metric\\FunctionMetric"
+            }
+        ],
+        "nbMethodsIncludingGettersSetters": 2,
+        "nbMethods": 2,
+        "nbMethodsPrivate": 0,
+        "nbMethodsPublic": 2,
+        "nbMethodsGetter": 0,
+        "nbMethodsSetters": 0,
+        "wmc": 2,
+        "ccn": 1,
+        "ccnMethodMax": 1,
+        "externals": [
+            "Orders\\Domain\\ValueObjects\\Address",
+            "Orders\\Domain\\ValueObjects\\Address",
+            "Orders\\Domain\\ValueObjects\\Item",
+            "Orders\\Domain\\Entities\\Order",
+            "Orders\\Domain\\ValueObjects\\Address",
+            "Orders\\Domain\\ValueObjects\\Address",
+            "Orders\\Domain\\ValueObjects\\Item",
+            "Orders\\Domain\\ValueObjects\\OrderStatus",
+            "DateTimeImmutable",
+            "DateTimeImmutable",
+            "Orders\\Domain\\Entities\\Order"
+        ],
+        "parents": [],
+        "implements": [],
+        "lcom": 2,
+        "length": 45,
+        "vocabulary": 16,
+        "volume": 180,
+        "difficulty": 2.86,
+        "effort": 514.29,
+        "level": 0.35,
+        "bugs": 0.06,
+        "time": 29,
+        "intelligentContent": 63,
+        "number_operators": 5,
+        "number_operands": 40,
+        "number_operators_unique": 2,
+        "number_operands_unique": 14,
+        "cloc": 0,
+        "loc": 15,
+        "lloc": 15,
+        "mi": 58.42,
+        "mIwoC": 58.42,
+        "commentWeight": 0,
+        "kanDefect": 0.15,
+        "relativeStructuralComplexity": 9,
+        "relativeDataComplexity": 0.75,
+        "relativeSystemComplexity": 9.75,
+        "totalStructuralComplexity": 18,
+        "totalDataComplexity": 1.5,
+        "totalSystemComplexity": 19.5,
+        "package": "Orders\\Adapters\\Inbound\\",
+        "pageRank": 0.02,
+        "afferentCoupling": 2,
+        "efferentCoupling": 5,
+        "instability": 0.71,
+        "violations": {},
+        "_type": "Hal\\Metric\\ClassMetric"
+    },
+    "Orders\\Adapters\\Inbound\\": {
+        "name": "Orders\\Adapters\\Inbound\\",
+        "classes": [
+            "Orders\\Adapters\\Inbound\\OrderAdapter"
+        ],
+        "incoming_class_dependencies": [
+            "Orders\\Infra\\Http\\Handlers\\CloseOrderHandler",
+            "Orders\\Infra\\Persistence\\OrderRepository"
+        ],
+        "incoming_package_dependencies": [
+            "Orders\\Infra\\Http\\Handlers\\",
+            "Orders\\Infra\\Persistence\\"
+        ],
+        "outgoing_class_dependencies": [
+            "Orders\\Domain\\ValueObjects\\Address",
+            "Orders\\Domain\\ValueObjects\\Item",
+            "Orders\\Domain\\Entities\\Order",
+            "Orders\\Domain\\ValueObjects\\OrderStatus",
+            "DateTimeImmutable"
+        ],
+        "outgoing_package_dependencies": [
+            "Orders\\Domain\\ValueObjects\\",
+            "Orders\\Domain\\Entities\\",
+            "\\"
+        ],
+        "abstraction": 0,
+        "instability": 0.7142857142857143,
+        "dependent_instabilities": {
+            "Orders\\Domain\\ValueObjects\\": 0.2,
+            "Orders\\Domain\\Entities\\": 0.4166666666666667
+        },
+        "distance": 0.20203050891044214,
+        "normalized_distance": 0.2857142857142857,
+        "violations": {},
+        "_type": "Hal\\Metric\\PackageMetric"
+    },
+    "Orders\\Adapters\\Outbound\\ProductsAdapter": {
+        "name": "Orders\\Adapters\\Outbound\\ProductsAdapter",
+        "interface": false,
+        "abstract": false,
+        "final": false,
+        "methods": [
+            {
+                "name": "itemsToRequest",
+                "role": null,
+                "public": true,
+                "private": false,
+                "_type": "Hal\\Metric\\FunctionMetric"
+            },
+            {
+                "name": "responseToResult",
+                "role": null,
+                "public": true,
+                "private": false,
+                "_type": "Hal\\Metric\\FunctionMetric"
+            }
+        ],
+        "nbMethodsIncludingGettersSetters": 2,
+        "nbMethods": 2,
+        "nbMethodsPrivate": 0,
+        "nbMethodsPublic": 2,
+        "nbMethodsGetter": 0,
+        "nbMethodsSetters": 0,
+        "wmc": 5,
+        "ccn": 4,
+        "ccnMethodMax": 4,
+        "externals": [],
+        "parents": [],
+        "implements": [],
+        "lcom": 2,
+        "length": 28,
+        "vocabulary": 14,
+        "volume": 106.61,
+        "difficulty": 4.2,
+        "effort": 447.74,
+        "level": 0.24,
+        "bugs": 0.04,
+        "time": 25,
+        "intelligentContent": 25.38,
+        "number_operators": 7,
+        "number_operands": 21,
+        "number_operators_unique": 4,
+        "number_operands_unique": 10,
+        "cloc": 0,
+        "loc": 15,
+        "lloc": 15,
+        "mi": 59.61,
+        "mIwoC": 59.61,
+        "commentWeight": 0,
+        "kanDefect": 0.22,
+        "relativeStructuralComplexity": 0,
+        "relativeDataComplexity": 5,
+        "relativeSystemComplexity": 5,
+        "totalStructuralComplexity": 0,
+        "totalDataComplexity": 10,
+        "totalSystemComplexity": 10,
+        "package": "Orders\\Adapters\\Outbound\\",
+        "pageRank": 0.03,
+        "afferentCoupling": 1,
+        "efferentCoupling": 0,
+        "instability": 0,
+        "violations": {},
+        "_type": "Hal\\Metric\\ClassMetric"
+    },
+    "Orders\\Adapters\\Outbound\\": {
+        "name": "Orders\\Adapters\\Outbound\\",
+        "classes": [
+            "Orders\\Adapters\\Outbound\\ProductsAdapter",
+            "Orders\\Adapters\\Outbound\\OrderAdapter"
+        ],
+        "incoming_class_dependencies": [
+            "Orders\\Infra\\Http\\ProductsClient",
+            "Orders\\Infra\\Http\\Handlers\\CloseOrderHandler",
+            "Orders\\Infra\\Http\\Handlers\\GetOrderHandler",
+            "Orders\\Infra\\Http\\Handlers\\UpdateStatusHandler",
+            "Orders\\Infra\\Http\\Handlers\\ListOrdersHandler",
+            "Orders\\Infra\\Persistence\\OrderRepository"
+        ],
+        "incoming_package_dependencies": [
+            "Orders\\Infra\\Http\\",
+            "Orders\\Infra\\Http\\Handlers\\",
+            "Orders\\Infra\\Persistence\\"
+        ],
+        "outgoing_class_dependencies": [
+            "Orders\\Domain\\Entities\\Order"
+        ],
+        "outgoing_package_dependencies": [
+            "Orders\\Domain\\Entities\\"
+        ],
+        "abstraction": 0,
+        "instability": 0.14285714285714285,
+        "dependent_instabilities": {
+            "Orders\\Domain\\Entities\\": 0.4166666666666667
+        },
+        "distance": 0.6060915267313265,
+        "normalized_distance": 0.8571428571428572,
+        "violations": {},
+        "_type": "Hal\\Metric\\PackageMetric"
+    },
+    "Orders\\Adapters\\Outbound\\OrderAdapter": {
+        "name": "Orders\\Adapters\\Outbound\\OrderAdapter",
+        "interface": false,
+        "abstract": false,
+        "final": false,
+        "methods": [
+            {
+                "name": "orderToDb",
+                "role": null,
+                "public": true,
+                "private": false,
+                "_type": "Hal\\Metric\\FunctionMetric"
+            },
+            {
+                "name": "orderToJson",
+                "role": null,
+                "public": true,
+                "private": false,
+                "_type": "Hal\\Metric\\FunctionMetric"
+            },
+            {
+                "name": "ordersToJson",
+                "role": null,
+                "public": true,
+                "private": false,
+                "_type": "Hal\\Metric\\FunctionMetric"
+            }
+        ],
+        "nbMethodsIncludingGettersSetters": 3,
+        "nbMethods": 3,
+        "nbMethodsPrivate": 0,
+        "nbMethodsPublic": 3,
+        "nbMethodsGetter": 0,
+        "nbMethodsSetters": 0,
+        "wmc": 3,
+        "ccn": 1,
+        "ccnMethodMax": 1,
+        "externals": [
+            "Orders\\Domain\\Entities\\Order",
+            "Orders\\Domain\\Entities\\Order"
+        ],
+        "parents": [],
+        "implements": [],
+        "lcom": 3,
+        "length": 32,
+        "vocabulary": 14,
+        "volume": 121.84,
+        "difficulty": 1.12,
+        "effort": 135.89,
+        "level": 0.9,
+        "bugs": 0.04,
+        "time": 8,
+        "intelligentContent": 109.23,
+        "number_operators": 3,
+        "number_operands": 29,
+        "number_operators_unique": 1,
+        "number_operands_unique": 13,
+        "cloc": 0,
+        "loc": 16,
+        "lloc": 16,
+        "mi": 58.99,
+        "mIwoC": 58.99,
+        "commentWeight": 0,
+        "kanDefect": 0.15,
+        "relativeStructuralComplexity": 256,
+        "relativeDataComplexity": 0.24,
+        "relativeSystemComplexity": 256.24,
+        "totalStructuralComplexity": 768,
+        "totalDataComplexity": 0.71,
+        "totalSystemComplexity": 768.71,
+        "package": "Orders\\Adapters\\Outbound\\",
+        "pageRank": 0.04,
+        "afferentCoupling": 5,
+        "efferentCoupling": 1,
+        "instability": 0.17,
+        "violations": {},
+        "_type": "Hal\\Metric\\ClassMetric"
+    },
+    "Orders\\Ports\\Inbound\\UpdateOrderStatusUseCase": {
+        "name": "Orders\\Ports\\Inbound\\UpdateOrderStatusUseCase",
+        "interface": false,
+        "abstract": false,
+        "final": false,
+        "methods": [
+            {
+                "name": "__construct",
+                "role": null,
+                "public": true,
+                "private": false,
+                "_type": "Hal\\Metric\\FunctionMetric"
+            },
+            {
+                "name": "execute",
+                "role": null,
+                "public": true,
+                "private": false,
+                "_type": "Hal\\Metric\\FunctionMetric"
+            }
+        ],
+        "nbMethodsIncludingGettersSetters": 2,
+        "nbMethods": 2,
+        "nbMethodsPrivate": 0,
+        "nbMethodsPublic": 2,
+        "nbMethodsGetter": 0,
+        "nbMethodsSetters": 0,
+        "wmc": 5,
+        "ccn": 4,
+        "ccnMethodMax": 4,
+        "externals": [
+            "Orders\\Ports\\Outbound\\OrderRepositoryInterface",
+            "Orders\\Ports\\Outbound\\EventPublisherInterface",
+            "Orders\\Domain\\ValueObjects\\OrderStatus",
+            "Orders\\Domain\\Events\\OrderUpdated"
+        ],
+        "parents": [],
+        "implements": [],
+        "lcom": 2,
+        "length": 48,
+        "vocabulary": 18,
+        "volume": 200.16,
+        "difficulty": 7.12,
+        "effort": 1424.19,
+        "level": 0.14,
+        "bugs": 0.07,
+        "time": 79,
+        "intelligentContent": 28.13,
+        "number_operators": 11,
+        "number_operands": 37,
+        "number_operators_unique": 5,
+        "number_operands_unique": 13,
+        "cloc": 0,
+        "loc": 26,
+        "lloc": 26,
+        "mi": 52.48,
+        "mIwoC": 52.48,
+        "commentWeight": 0,
+        "kanDefect": 0.22,
+        "relativeStructuralComplexity": 49,
+        "relativeDataComplexity": 0.75,
+        "relativeSystemComplexity": 49.75,
+        "totalStructuralComplexity": 98,
+        "totalDataComplexity": 1.5,
+        "totalSystemComplexity": 99.5,
+        "package": "Orders\\Ports\\Inbound\\",
+        "pageRank": 0.02,
+        "afferentCoupling": 1,
+        "efferentCoupling": 4,
+        "instability": 0.8,
+        "violations": {},
+        "_type": "Hal\\Metric\\ClassMetric"
+    },
+    "Orders\\Ports\\Inbound\\": {
+        "name": "Orders\\Ports\\Inbound\\",
+        "classes": [
+            "Orders\\Ports\\Inbound\\UpdateOrderStatusUseCase",
+            "Orders\\Ports\\Inbound\\GetOrderUseCase",
+            "Orders\\Ports\\Inbound\\CloseOrderUseCase",
+            "Orders\\Ports\\Inbound\\ListOrdersUseCase"
+        ],
+        "incoming_class_dependencies": [
+            "Orders\\Infra\\Http\\Handlers\\CloseOrderHandler",
+            "Orders\\Infra\\Http\\Handlers\\GetOrderHandler",
+            "Orders\\Infra\\Http\\Handlers\\UpdateStatusHandler",
+            "Orders\\Infra\\Http\\Handlers\\ListOrdersHandler"
+        ],
+        "incoming_package_dependencies": [
+            "Orders\\Infra\\Http\\Handlers\\"
+        ],
+        "outgoing_class_dependencies": [
+            "Orders\\Ports\\Outbound\\OrderRepositoryInterface",
+            "Orders\\Ports\\Outbound\\EventPublisherInterface",
+            "Orders\\Domain\\ValueObjects\\OrderStatus",
+            "Orders\\Domain\\Events\\OrderUpdated",
+            "Orders\\Ports\\Outbound\\ProductsServiceInterface",
+            "Orders\\Domain\\Entities\\Order",
+            "Orders\\Domain\\Events\\OrderCreated"
+        ],
+        "outgoing_package_dependencies": [
+            "Orders\\Ports\\Outbound\\",
+            "Orders\\Domain\\ValueObjects\\",
+            "Orders\\Domain\\Events\\",
+            "Orders\\Domain\\Entities\\"
+        ],
+        "abstraction": 0,
+        "instability": 0.6363636363636364,
+        "dependent_instabilities": {
+            "Orders\\Ports\\Outbound\\": 0.125,
+            "Orders\\Domain\\ValueObjects\\": 0.2,
+            "Orders\\Domain\\Events\\": 0.6,
+            "Orders\\Domain\\Entities\\": 0.4166666666666667
+        },
+        "distance": 0.25712973861328997,
+        "normalized_distance": 0.36363636363636365,
+        "violations": {},
+        "_type": "Hal\\Metric\\PackageMetric"
+    },
+    "Orders\\Ports\\Inbound\\GetOrderUseCase": {
+        "name": "Orders\\Ports\\Inbound\\GetOrderUseCase",
+        "interface": false,
+        "abstract": false,
+        "final": false,
+        "methods": [
+            {
+                "name": "__construct",
+                "role": null,
+                "public": true,
+                "private": false,
+                "_type": "Hal\\Metric\\FunctionMetric"
+            },
+            {
+                "name": "execute",
+                "role": null,
+                "public": true,
+                "private": false,
+                "_type": "Hal\\Metric\\FunctionMetric"
+            }
+        ],
+        "nbMethodsIncludingGettersSetters": 2,
+        "nbMethods": 2,
+        "nbMethodsPrivate": 0,
+        "nbMethodsPublic": 2,
+        "nbMethodsGetter": 0,
+        "nbMethodsSetters": 0,
+        "wmc": 3,
+        "ccn": 2,
+        "ccnMethodMax": 2,
+        "externals": [
+            "Orders\\Ports\\Outbound\\OrderRepositoryInterface"
+        ],
+        "parents": [],
+        "implements": [],
+        "lcom": 2,
+        "length": 19,
+        "vocabulary": 11,
+        "volume": 65.73,
+        "difficulty": 4,
+        "effort": 262.92,
+        "level": 0.25,
+        "bugs": 0.02,
+        "time": 15,
+        "intelligentContent": 16.43,
+        "number_operators": 5,
+        "number_operands": 14,
+        "number_operators_unique": 4,
+        "number_operands_unique": 7,
+        "cloc": 0,
+        "loc": 15,
+        "lloc": 15,
+        "mi": 61.35,
+        "mIwoC": 61.35,
+        "commentWeight": 0,
+        "kanDefect": 0.22,
+        "relativeStructuralComplexity": 1,
+        "relativeDataComplexity": 1.5,
+        "relativeSystemComplexity": 2.5,
+        "totalStructuralComplexity": 2,
+        "totalDataComplexity": 3,
+        "totalSystemComplexity": 5,
+        "package": "Orders\\Ports\\Inbound\\",
+        "pageRank": 0.02,
+        "afferentCoupling": 1,
+        "efferentCoupling": 1,
+        "instability": 0.5,
+        "violations": {},
+        "_type": "Hal\\Metric\\ClassMetric"
+    },
+    "Orders\\Ports\\Inbound\\CloseOrderUseCase": {
+        "name": "Orders\\Ports\\Inbound\\CloseOrderUseCase",
+        "interface": false,
+        "abstract": false,
+        "final": false,
+        "methods": [
+            {
+                "name": "__construct",
+                "role": null,
+                "public": true,
+                "private": false,
+                "_type": "Hal\\Metric\\FunctionMetric"
+            },
+            {
+                "name": "execute",
+                "role": null,
+                "public": true,
+                "private": false,
+                "_type": "Hal\\Metric\\FunctionMetric"
+            }
+        ],
+        "nbMethodsIncludingGettersSetters": 2,
+        "nbMethods": 2,
+        "nbMethodsPrivate": 0,
+        "nbMethodsPublic": 2,
+        "nbMethodsGetter": 0,
+        "nbMethodsSetters": 0,
+        "wmc": 5,
+        "ccn": 4,
+        "ccnMethodMax": 4,
+        "externals": [
+            "Orders\\Ports\\Outbound\\OrderRepositoryInterface",
+            "Orders\\Ports\\Outbound\\ProductsServiceInterface",
+            "Orders\\Ports\\Outbound\\EventPublisherInterface",
+            "Orders\\Domain\\Entities\\Order",
+            "Orders\\Domain\\Events\\OrderCreated"
+        ],
+        "parents": [],
+        "implements": [],
+        "lcom": 2,
+        "length": 52,
+        "vocabulary": 21,
+        "volume": 228.4,
+        "difficulty": 6.72,
+        "effort": 1534.57,
+        "level": 0.15,
+        "bugs": 0.08,
+        "time": 85,
+        "intelligentContent": 33.99,
+        "number_operators": 9,
+        "number_operands": 43,
+        "number_operators_unique": 5,
+        "number_operands_unique": 16,
+        "cloc": 0,
+        "loc": 25,
+        "lloc": 25,
+        "mi": 52.45,
+        "mIwoC": 52.45,
+        "commentWeight": 0,
+        "kanDefect": 0.22,
+        "relativeStructuralComplexity": 64,
+        "relativeDataComplexity": 0.56,
+        "relativeSystemComplexity": 64.56,
+        "totalStructuralComplexity": 128,
+        "totalDataComplexity": 1.11,
+        "totalSystemComplexity": 129.11,
+        "package": "Orders\\Ports\\Inbound\\",
+        "pageRank": 0.02,
+        "afferentCoupling": 1,
+        "efferentCoupling": 5,
+        "instability": 0.83,
+        "violations": {},
+        "_type": "Hal\\Metric\\ClassMetric"
+    },
+    "Orders\\Ports\\Inbound\\ListOrdersUseCase": {
+        "name": "Orders\\Ports\\Inbound\\ListOrdersUseCase",
+        "interface": false,
+        "abstract": false,
+        "final": false,
+        "methods": [
+            {
+                "name": "__construct",
+                "role": null,
+                "public": true,
+                "private": false,
+                "_type": "Hal\\Metric\\FunctionMetric"
+            },
+            {
+                "name": "execute",
+                "role": null,
+                "public": true,
+                "private": false,
+                "_type": "Hal\\Metric\\FunctionMetric"
+            }
+        ],
+        "nbMethodsIncludingGettersSetters": 2,
+        "nbMethods": 2,
+        "nbMethodsPrivate": 0,
+        "nbMethodsPublic": 2,
+        "nbMethodsGetter": 0,
+        "nbMethodsSetters": 0,
+        "wmc": 2,
+        "ccn": 1,
+        "ccnMethodMax": 1,
+        "externals": [
+            "Orders\\Ports\\Outbound\\OrderRepositoryInterface"
+        ],
+        "parents": [],
+        "implements": [],
+        "lcom": 2,
+        "length": 8,
+        "vocabulary": 6,
+        "volume": 20.68,
+        "difficulty": 1.5,
+        "effort": 31.02,
+        "level": 0.67,
+        "bugs": 0.01,
+        "time": 2,
+        "intelligentContent": 13.79,
+        "number_operators": 2,
+        "number_operands": 6,
+        "number_operators_unique": 2,
+        "number_operands_unique": 4,
+        "cloc": 0,
+        "loc": 12,
+        "lloc": 12,
+        "mi": 67.11,
+        "mIwoC": 67.11,
+        "commentWeight": 0,
+        "kanDefect": 0.15,
+        "relativeStructuralComplexity": 1,
+        "relativeDataComplexity": 0.75,
+        "relativeSystemComplexity": 1.75,
+        "totalStructuralComplexity": 2,
+        "totalDataComplexity": 1.5,
+        "totalSystemComplexity": 3.5,
+        "package": "Orders\\Ports\\Inbound\\",
+        "pageRank": 0.02,
+        "afferentCoupling": 1,
+        "efferentCoupling": 1,
+        "instability": 0.5,
+        "violations": {},
+        "_type": "Hal\\Metric\\ClassMetric"
+    },
+    "Orders\\Ports\\Outbound\\ProductsServiceInterface": {
+        "name": "Orders\\Ports\\Outbound\\ProductsServiceInterface",
+        "interface": true,
+        "abstract": true,
+        "methods": [
+            {
+                "name": "reserveProducts",
+                "role": null,
+                "public": true,
+                "private": false,
+                "_type": "Hal\\Metric\\FunctionMetric"
+            },
+            {
+                "name": "releaseReservation",
+                "role": null,
+                "public": true,
+                "private": false,
+                "_type": "Hal\\Metric\\FunctionMetric"
+            }
+        ],
+        "nbMethodsIncludingGettersSetters": 2,
+        "nbMethods": 2,
+        "nbMethodsPrivate": 0,
+        "nbMethodsPublic": 2,
+        "nbMethodsGetter": 0,
+        "nbMethodsSetters": 0,
+        "wmc": 2,
+        "ccn": 1,
+        "ccnMethodMax": 1,
+        "externals": [],
+        "parents": [],
+        "implements": [],
+        "kanDefect": 0.15,
+        "package": "Orders\\Ports\\Outbound\\",
+        "pageRank": 0.02,
+        "afferentCoupling": 2,
+        "efferentCoupling": 0,
+        "instability": 0,
+        "violations": {},
+        "_type": "Hal\\Metric\\InterfaceMetric"
+    },
+    "Orders\\Ports\\Outbound\\": {
+        "name": "Orders\\Ports\\Outbound\\",
+        "classes": [
+            "Orders\\Ports\\Outbound\\ProductsServiceInterface",
+            "Orders\\Ports\\Outbound\\OrderRepositoryInterface",
+            "Orders\\Ports\\Outbound\\EventPublisherInterface"
+        ],
+        "incoming_class_dependencies": [
+            "Orders\\Infra\\EventPublisher",
+            "Orders\\Infra\\Http\\ProductsClient",
+            "Orders\\Infra\\Persistence\\OrderRepository",
+            "Orders\\Ports\\Inbound\\UpdateOrderStatusUseCase",
+            "Orders\\Ports\\Inbound\\GetOrderUseCase",
+            "Orders\\Ports\\Inbound\\CloseOrderUseCase",
+            "Orders\\Ports\\Inbound\\ListOrdersUseCase"
+        ],
+        "incoming_package_dependencies": [
+            "Orders\\Infra\\",
+            "Orders\\Infra\\Http\\",
+            "Orders\\Infra\\Persistence\\",
+            "Orders\\Ports\\Inbound\\"
+        ],
+        "outgoing_class_dependencies": [
+            "Orders\\Domain\\Entities\\Order"
+        ],
+        "outgoing_package_dependencies": [
+            "Orders\\Domain\\Entities\\"
+        ],
+        "abstraction": 1,
+        "instability": 0.125,
+        "dependent_instabilities": {
+            "Orders\\Domain\\Entities\\": 0.4166666666666667
+        },
+        "distance": 0.08838834764831843,
+        "normalized_distance": 0.125,
+        "violations": {},
+        "_type": "Hal\\Metric\\PackageMetric"
+    },
+    "Orders\\Ports\\Outbound\\OrderRepositoryInterface": {
+        "name": "Orders\\Ports\\Outbound\\OrderRepositoryInterface",
+        "interface": true,
+        "abstract": true,
+        "methods": [
+            {
+                "name": "save",
+                "role": null,
+                "public": true,
+                "private": false,
+                "_type": "Hal\\Metric\\FunctionMetric"
+            },
+            {
+                "name": "findById",
+                "role": null,
+                "public": true,
+                "private": false,
+                "_type": "Hal\\Metric\\FunctionMetric"
+            },
+            {
+                "name": "update",
+                "role": null,
+                "public": true,
+                "private": false,
+                "_type": "Hal\\Metric\\FunctionMetric"
+            },
+            {
+                "name": "listAll",
+                "role": null,
+                "public": true,
+                "private": false,
+                "_type": "Hal\\Metric\\FunctionMetric"
+            }
+        ],
+        "nbMethodsIncludingGettersSetters": 4,
+        "nbMethods": 4,
+        "nbMethodsPrivate": 0,
+        "nbMethodsPublic": 4,
+        "nbMethodsGetter": 0,
+        "nbMethodsSetters": 0,
+        "wmc": 4,
+        "ccn": 1,
+        "ccnMethodMax": 1,
+        "externals": [
+            "Orders\\Domain\\Entities\\Order",
+            "Orders\\Domain\\Entities\\Order"
+        ],
+        "parents": [],
+        "implements": [],
+        "kanDefect": 0.15,
+        "package": "Orders\\Ports\\Outbound\\",
+        "pageRank": 0.1,
+        "afferentCoupling": 5,
+        "efferentCoupling": 1,
+        "instability": 0.17,
+        "violations": {},
+        "_type": "Hal\\Metric\\InterfaceMetric"
+    },
+    "Orders\\Ports\\Outbound\\EventPublisherInterface": {
+        "name": "Orders\\Ports\\Outbound\\EventPublisherInterface",
+        "interface": true,
+        "abstract": true,
+        "methods": [
+            {
+                "name": "publish",
+                "role": null,
+                "public": true,
+                "private": false,
+                "_type": "Hal\\Metric\\FunctionMetric"
+            }
+        ],
+        "nbMethodsIncludingGettersSetters": 1,
+        "nbMethods": 1,
+        "nbMethodsPrivate": 0,
+        "nbMethodsPublic": 1,
+        "nbMethodsGetter": 0,
+        "nbMethodsSetters": 0,
+        "wmc": 1,
+        "ccn": 1,
+        "ccnMethodMax": 1,
+        "externals": [],
+        "parents": [],
+        "implements": [],
+        "kanDefect": 0.15,
+        "package": "Orders\\Ports\\Outbound\\",
+        "pageRank": 0.05,
+        "afferentCoupling": 3,
+        "efferentCoupling": 0,
+        "instability": 0,
+        "violations": {},
+        "_type": "Hal\\Metric\\InterfaceMetric"
+    },
+    "Orders\\Domain\\Events\\OrderUpdated": {
+        "name": "Orders\\Domain\\Events\\OrderUpdated",
+        "interface": false,
+        "abstract": false,
+        "final": true,
+        "methods": [
+            {
+                "name": "__construct",
+                "role": null,
+                "public": true,
+                "private": false,
+                "_type": "Hal\\Metric\\FunctionMetric"
+            },
+            {
+                "name": "toArray",
+                "role": null,
+                "public": true,
+                "private": false,
+                "_type": "Hal\\Metric\\FunctionMetric"
+            }
+        ],
+        "nbMethodsIncludingGettersSetters": 2,
+        "nbMethods": 2,
+        "nbMethodsPrivate": 0,
+        "nbMethodsPublic": 2,
+        "nbMethodsGetter": 0,
+        "nbMethodsSetters": 0,
+        "wmc": 2,
+        "ccn": 1,
+        "ccnMethodMax": 1,
+        "externals": [
+            "Orders\\Domain\\Entities\\Order",
+            "Orders\\Domain\\ValueObjects\\OrderStatus",
+            "DateTimeImmutable"
+        ],
+        "parents": [],
+        "implements": [],
+        "lcom": 1,
+        "length": 23,
+        "vocabulary": 13,
+        "volume": 85.11,
+        "difficulty": 1.73,
+        "effort": 147.01,
+        "level": 0.58,
+        "bugs": 0.03,
+        "time": 8,
+        "intelligentContent": 49.27,
+        "number_operators": 4,
+        "number_operands": 19,
+        "number_operators_unique": 2,
+        "number_operands_unique": 11,
+        "cloc": 0,
+        "loc": 17,
+        "lloc": 17,
+        "mi": 59.51,
+        "mIwoC": 59.51,
+        "commentWeight": 0,
+        "kanDefect": 0.15,
+        "relativeStructuralComplexity": 9,
+        "relativeDataComplexity": 0.5,
+        "relativeSystemComplexity": 9.5,
+        "totalStructuralComplexity": 18,
+        "totalDataComplexity": 1,
+        "totalSystemComplexity": 19,
+        "package": "Orders\\Domain\\Events\\",
+        "pageRank": 0.02,
+        "afferentCoupling": 1,
+        "efferentCoupling": 3,
+        "instability": 0.75,
+        "violations": {},
+        "_type": "Hal\\Metric\\ClassMetric"
+    },
+    "Orders\\Domain\\Events\\": {
+        "name": "Orders\\Domain\\Events\\",
+        "classes": [
+            "Orders\\Domain\\Events\\OrderUpdated",
+            "Orders\\Domain\\Events\\OrderCreated"
+        ],
+        "incoming_class_dependencies": [
+            "Orders\\Ports\\Inbound\\UpdateOrderStatusUseCase",
+            "Orders\\Ports\\Inbound\\CloseOrderUseCase"
+        ],
+        "incoming_package_dependencies": [
+            "Orders\\Ports\\Inbound\\"
+        ],
+        "outgoing_class_dependencies": [
+            "Orders\\Domain\\Entities\\Order",
+            "Orders\\Domain\\ValueObjects\\OrderStatus",
+            "DateTimeImmutable"
+        ],
+        "outgoing_package_dependencies": [
+            "Orders\\Domain\\Entities\\",
+            "Orders\\Domain\\ValueObjects\\",
+            "\\"
+        ],
+        "abstraction": 0,
+        "instability": 0.6,
+        "dependent_instabilities": {
+            "Orders\\Domain\\Entities\\": 0.4166666666666667,
+            "Orders\\Domain\\ValueObjects\\": 0.2
+        },
+        "distance": 0.282842712474619,
+        "normalized_distance": 0.4,
+        "violations": {},
+        "_type": "Hal\\Metric\\PackageMetric"
+    },
+    "Orders\\Domain\\Events\\OrderCreated": {
+        "name": "Orders\\Domain\\Events\\OrderCreated",
+        "interface": false,
+        "abstract": false,
+        "final": true,
+        "methods": [
+            {
+                "name": "__construct",
+                "role": null,
+                "public": true,
+                "private": false,
+                "_type": "Hal\\Metric\\FunctionMetric"
+            },
+            {
+                "name": "toArray",
+                "role": null,
+                "public": true,
+                "private": false,
+                "_type": "Hal\\Metric\\FunctionMetric"
+            }
+        ],
+        "nbMethodsIncludingGettersSetters": 2,
+        "nbMethods": 2,
+        "nbMethodsPrivate": 0,
+        "nbMethodsPublic": 2,
+        "nbMethodsGetter": 0,
+        "nbMethodsSetters": 0,
+        "wmc": 2,
+        "ccn": 1,
+        "ccnMethodMax": 1,
+        "externals": [
+            "Orders\\Domain\\Entities\\Order",
+            "DateTimeImmutable"
+        ],
+        "parents": [],
+        "implements": [],
+        "lcom": 1,
+        "length": 30,
+        "vocabulary": 16,
+        "volume": 120,
+        "difficulty": 1.86,
+        "effort": 222.86,
+        "level": 0.54,
+        "bugs": 0.04,
+        "time": 12,
+        "intelligentContent": 64.62,
+        "number_operators": 4,
+        "number_operands": 26,
+        "number_operators_unique": 2,
+        "number_operands_unique": 14,
+        "cloc": 0,
+        "loc": 17,
+        "lloc": 17,
+        "mi": 58.47,
+        "mIwoC": 58.47,
+        "commentWeight": 0,
+        "kanDefect": 0.15,
+        "relativeStructuralComplexity": 100,
+        "relativeDataComplexity": 0.14,
+        "relativeSystemComplexity": 100.14,
+        "totalStructuralComplexity": 200,
+        "totalDataComplexity": 0.27,
+        "totalSystemComplexity": 200.27,
+        "package": "Orders\\Domain\\Events\\",
+        "pageRank": 0.02,
+        "afferentCoupling": 1,
+        "efferentCoupling": 2,
+        "instability": 0.67,
+        "violations": {},
+        "_type": "Hal\\Metric\\ClassMetric"
+    },
+    "Orders\\Domain\\Entities\\Order": {
+        "name": "Orders\\Domain\\Entities\\Order",
+        "interface": false,
+        "abstract": false,
+        "final": false,
+        "methods": [
+            {
+                "name": "__construct",
+                "role": null,
+                "public": true,
+                "private": false,
+                "_type": "Hal\\Metric\\FunctionMetric"
+            },
+            {
+                "name": "calculateTotal",
+                "role": null,
+                "public": false,
+                "private": true,
+                "_type": "Hal\\Metric\\FunctionMetric"
+            },
+            {
+                "name": "getId",
+                "role": "getter",
+                "_type": "Hal\\Metric\\FunctionMetric"
+            },
+            {
+                "name": "getCustomerId",
+                "role": "getter",
+                "_type": "Hal\\Metric\\FunctionMetric"
+            },
+            {
+                "name": "getShippingAddress",
+                "role": "getter",
+                "_type": "Hal\\Metric\\FunctionMetric"
+            },
+            {
+                "name": "getBillingAddress",
+                "role": "getter",
+                "_type": "Hal\\Metric\\FunctionMetric"
+            },
+            {
+                "name": "getItems",
+                "role": "getter",
+                "_type": "Hal\\Metric\\FunctionMetric"
+            },
+            {
+                "name": "getTotal",
+                "role": "getter",
+                "_type": "Hal\\Metric\\FunctionMetric"
+            },
+            {
+                "name": "getStatus",
+                "role": "getter",
+                "_type": "Hal\\Metric\\FunctionMetric"
+            },
+            {
+                "name": "getCreatedAt",
+                "role": "getter",
+                "_type": "Hal\\Metric\\FunctionMetric"
+            },
+            {
+                "name": "getUpdatedAt",
+                "role": "getter",
+                "_type": "Hal\\Metric\\FunctionMetric"
+            },
+            {
+                "name": "canTransitionTo",
+                "role": null,
+                "public": false,
+                "private": true,
+                "_type": "Hal\\Metric\\FunctionMetric"
+            },
+            {
+                "name": "updateStatus",
+                "role": null,
+                "public": true,
+                "private": false,
+                "_type": "Hal\\Metric\\FunctionMetric"
+            },
+            {
+                "name": "getProductsForReservation",
+                "role": null,
+                "public": true,
+                "private": false,
+                "_type": "Hal\\Metric\\FunctionMetric"
+            },
+            {
+                "name": "toArray",
+                "role": null,
+                "public": true,
+                "private": false,
+                "_type": "Hal\\Metric\\FunctionMetric"
+            }
+        ],
+        "nbMethodsIncludingGettersSetters": 15,
+        "nbMethods": 6,
+        "nbMethodsPrivate": 2,
+        "nbMethodsPublic": 4,
+        "nbMethodsGetter": 9,
+        "nbMethodsSetters": 0,
+        "wmc": 12,
+        "ccn": 7,
+        "ccnMethodMax": 5,
+        "externals": [
+            "Orders\\Domain\\ValueObjects\\Address",
+            "Orders\\Domain\\ValueObjects\\Address",
+            "Ramsey\\Uuid\\Uuid",
+            "DateTimeImmutable",
+            "DateTimeImmutable",
+            "Orders\\Domain\\ValueObjects\\Address",
+            "Orders\\Domain\\ValueObjects\\Address",
+            "Orders\\Domain\\ValueObjects\\OrderStatus",
+            "DateTimeImmutable",
+            "DateTimeImmutable",
+            "Orders\\Domain\\ValueObjects\\OrderStatus",
+            "Orders\\Domain\\ValueObjects\\OrderStatus",
+            "DomainException",
+            "DateTimeImmutable"
+        ],
+        "parents": [],
+        "implements": [],
+        "lcom": 1,
+        "length": 131,
+        "vocabulary": 35,
+        "volume": 671.94,
+        "difficulty": 8.25,
+        "effort": 5543.47,
+        "level": 0.12,
+        "bugs": 0.22,
+        "time": 308,
+        "intelligentContent": 81.45,
+        "number_operators": 32,
+        "number_operands": 99,
+        "number_operators_unique": 5,
+        "number_operands_unique": 30,
+        "cloc": 0,
+        "loc": 87,
+        "lloc": 87,
+        "mi": 36.95,
+        "mIwoC": 36.95,
+        "commentWeight": 0,
+        "kanDefect": 0.22,
+        "relativeStructuralComplexity": 100,
+        "relativeDataComplexity": 1.24,
+        "relativeSystemComplexity": 101.24,
+        "totalStructuralComplexity": 1500,
+        "totalDataComplexity": 18.64,
+        "totalSystemComplexity": 1518.64,
+        "package": "Orders\\Domain\\Entities\\",
+        "pageRank": 0.31,
+        "afferentCoupling": 7,
+        "efferentCoupling": 5,
+        "instability": 0.42,
+        "violations": {},
+        "_type": "Hal\\Metric\\ClassMetric"
+    },
+    "Orders\\Domain\\Entities\\": {
+        "name": "Orders\\Domain\\Entities\\",
+        "classes": [
+            "Orders\\Domain\\Entities\\Order"
+        ],
+        "incoming_class_dependencies": [
+            "Orders\\Infra\\Persistence\\OrderRepository",
+            "Orders\\Adapters\\Inbound\\OrderAdapter",
+            "Orders\\Adapters\\Outbound\\OrderAdapter",
+            "Orders\\Ports\\Inbound\\CloseOrderUseCase",
+            "Orders\\Ports\\Outbound\\OrderRepositoryInterface",
+            "Orders\\Domain\\Events\\OrderUpdated",
+            "Orders\\Domain\\Events\\OrderCreated"
+        ],
+        "incoming_package_dependencies": [
+            "Orders\\Infra\\Persistence\\",
+            "Orders\\Adapters\\Inbound\\",
+            "Orders\\Adapters\\Outbound\\",
+            "Orders\\Ports\\Inbound\\",
+            "Orders\\Ports\\Outbound\\",
+            "Orders\\Domain\\Events\\"
+        ],
+        "outgoing_class_dependencies": [
+            "Orders\\Domain\\ValueObjects\\Address",
+            "Ramsey\\Uuid\\Uuid",
+            "DateTimeImmutable",
+            "Orders\\Domain\\ValueObjects\\OrderStatus",
+            "DomainException"
+        ],
+        "outgoing_package_dependencies": [
+            "Orders\\Domain\\ValueObjects\\",
+            "Ramsey\\Uuid\\",
+            "\\"
+        ],
+        "abstraction": 0,
+        "instability": 0.4166666666666667,
+        "dependent_instabilities": {
+            "Orders\\Domain\\ValueObjects\\": 0.2
+        },
+        "distance": 0.41247895569215265,
+        "normalized_distance": 0.5833333333333333,
+        "violations": {},
+        "_type": "Hal\\Metric\\PackageMetric"
+    },
+    "Orders\\Domain\\ValueObjects\\Address": {
+        "name": "Orders\\Domain\\ValueObjects\\Address",
+        "interface": false,
+        "abstract": false,
+        "final": true,
+        "methods": [
+            {
+                "name": "__construct",
+                "role": null,
+                "public": true,
+                "private": false,
+                "_type": "Hal\\Metric\\FunctionMetric"
+            },
+            {
+                "name": "getStreetType",
+                "role": "getter",
+                "_type": "Hal\\Metric\\FunctionMetric"
+            },
+            {
+                "name": "getStreetName",
+                "role": "getter",
+                "_type": "Hal\\Metric\\FunctionMetric"
+            },
+            {
+                "name": "getNumber",
+                "role": "getter",
+                "_type": "Hal\\Metric\\FunctionMetric"
+            },
+            {
+                "name": "getComplement",
+                "role": "getter",
+                "_type": "Hal\\Metric\\FunctionMetric"
+            },
+            {
+                "name": "getDistrict",
+                "role": "getter",
+                "_type": "Hal\\Metric\\FunctionMetric"
+            },
+            {
+                "name": "getCity",
+                "role": "getter",
+                "_type": "Hal\\Metric\\FunctionMetric"
+            },
+            {
+                "name": "getState",
+                "role": "getter",
+                "_type": "Hal\\Metric\\FunctionMetric"
+            },
+            {
+                "name": "getZipCode",
+                "role": "getter",
+                "_type": "Hal\\Metric\\FunctionMetric"
+            },
+            {
+                "name": "toArray",
+                "role": null,
+                "public": true,
+                "private": false,
+                "_type": "Hal\\Metric\\FunctionMetric"
+            },
+            {
+                "name": "fromArray",
+                "role": null,
+                "public": true,
+                "private": false,
+                "_type": "Hal\\Metric\\FunctionMetric"
+            }
+        ],
+        "nbMethodsIncludingGettersSetters": 11,
+        "nbMethods": 3,
+        "nbMethodsPrivate": 0,
+        "nbMethodsPublic": 3,
+        "nbMethodsGetter": 8,
+        "nbMethodsSetters": 0,
+        "wmc": 4,
+        "ccn": 2,
+        "ccnMethodMax": 2,
+        "externals": [],
+        "parents": [],
+        "implements": [],
+        "lcom": 3,
+        "length": 60,
+        "vocabulary": 15,
+        "volume": 234.41,
+        "difficulty": 3.77,
+        "effort": 883.56,
+        "level": 0.27,
+        "bugs": 0.08,
+        "time": 49,
+        "intelligentContent": 62.19,
+        "number_operators": 11,
+        "number_operands": 49,
+        "number_operators_unique": 2,
+        "number_operands_unique": 13,
+        "cloc": 0,
+        "loc": 47,
+        "lloc": 47,
+        "mi": 46.66,
+        "mIwoC": 46.66,
+        "commentWeight": 0,
+        "kanDefect": 0.15,
+        "relativeStructuralComplexity": 0,
+        "relativeDataComplexity": 10.82,
+        "relativeSystemComplexity": 10.82,
+        "totalStructuralComplexity": 0,
+        "totalDataComplexity": 119,
+        "totalSystemComplexity": 119,
+        "package": "Orders\\Domain\\ValueObjects\\",
+        "pageRank": 0.18,
+        "afferentCoupling": 2,
+        "efferentCoupling": 0,
+        "instability": 0,
+        "violations": {},
+        "_type": "Hal\\Metric\\ClassMetric"
+    },
+    "Orders\\Domain\\ValueObjects\\": {
+        "name": "Orders\\Domain\\ValueObjects\\",
+        "classes": [
+            "Orders\\Domain\\ValueObjects\\Address",
+            "Orders\\Domain\\ValueObjects\\Item"
+        ],
+        "incoming_class_dependencies": [
+            "Orders\\Adapters\\Inbound\\OrderAdapter",
+            "Orders\\Ports\\Inbound\\UpdateOrderStatusUseCase",
+            "Orders\\Domain\\Events\\OrderUpdated",
+            "Orders\\Domain\\Entities\\Order"
+        ],
+        "incoming_package_dependencies": [
+            "Orders\\Adapters\\Inbound\\",
+            "Orders\\Ports\\Inbound\\",
+            "Orders\\Domain\\Events\\",
+            "Orders\\Domain\\Entities\\"
+        ],
+        "outgoing_class_dependencies": [
+            "InvalidArgumentException"
+        ],
+        "outgoing_package_dependencies": [
+            "\\"
+        ],
+        "abstraction": 0,
+        "instability": 0.2,
+        "dependent_instabilities": [],
+        "distance": 0.565685424949238,
+        "normalized_distance": 0.8,
+        "violations": {},
+        "_type": "Hal\\Metric\\PackageMetric"
+    },
+    "Orders\\Domain\\ValueObjects\\Item": {
+        "name": "Orders\\Domain\\ValueObjects\\Item",
+        "interface": false,
+        "abstract": false,
+        "final": true,
+        "methods": [
+            {
+                "name": "__construct",
+                "role": null,
+                "public": true,
+                "private": false,
+                "_type": "Hal\\Metric\\FunctionMetric"
+            },
+            {
+                "name": "getProductId",
+                "role": "getter",
+                "_type": "Hal\\Metric\\FunctionMetric"
+            },
+            {
+                "name": "getQuantity",
+                "role": "getter",
+                "_type": "Hal\\Metric\\FunctionMetric"
+            },
+            {
+                "name": "getPrice",
+                "role": "getter",
+                "_type": "Hal\\Metric\\FunctionMetric"
+            },
+            {
+                "name": "calculateSubtotal",
+                "role": null,
+                "public": true,
+                "private": false,
+                "_type": "Hal\\Metric\\FunctionMetric"
+            },
+            {
+                "name": "toArray",
+                "role": null,
+                "public": true,
+                "private": false,
+                "_type": "Hal\\Metric\\FunctionMetric"
+            },
+            {
+                "name": "fromArray",
+                "role": null,
+                "public": true,
+                "private": false,
+                "_type": "Hal\\Metric\\FunctionMetric"
+            }
+        ],
+        "nbMethodsIncludingGettersSetters": 7,
+        "nbMethods": 4,
+        "nbMethodsPrivate": 0,
+        "nbMethodsPublic": 4,
+        "nbMethodsGetter": 3,
+        "nbMethodsSetters": 0,
+        "wmc": 6,
+        "ccn": 3,
+        "ccnMethodMax": 3,
+        "externals": [
+            "InvalidArgumentException",
+            "InvalidArgumentException"
+        ],
+        "parents": [],
+        "implements": [],
+        "lcom": 3,
+        "length": 40,
+        "vocabulary": 15,
+        "volume": 156.28,
+        "difficulty": 5.27,
+        "effort": 824,
+        "level": 0.19,
+        "bugs": 0.05,
+        "time": 46,
+        "intelligentContent": 29.64,
+        "number_operators": 11,
+        "number_operands": 29,
+        "number_operators_unique": 4,
+        "number_operands_unique": 11,
+        "cloc": 0,
+        "loc": 37,
+        "lloc": 37,
+        "mi": 50.03,
+        "mIwoC": 50.03,
+        "commentWeight": 0,
+        "kanDefect": 0.29,
+        "relativeStructuralComplexity": 0,
+        "relativeDataComplexity": 6.57,
+        "relativeSystemComplexity": 6.57,
+        "totalStructuralComplexity": 0,
+        "totalDataComplexity": 46,
+        "totalSystemComplexity": 46,
+        "package": "Orders\\Domain\\ValueObjects\\",
+        "pageRank": 0.02,
+        "afferentCoupling": 1,
+        "efferentCoupling": 1,
+        "instability": 0.5,
+        "violations": {},
+        "_type": "Hal\\Metric\\ClassMetric"
+    },
+    "tree": {
+        "name": "tree",
+        "depthOfInheritanceTree": 1,
+        "violations": {},
+        "_type": "Hal\\Metric\\ProjectMetric"
+    },
+    "composer": {
+        "name": "composer",
+        "packages": [],
+        "packages-installed": [],
+        "violations": {},
+        "_type": "Hal\\Metric\\ProjectMetric"
+    },
+    "searches": {
+        "name": "searches",
+        "violations": {},
+        "_type": "Hal\\Metric\\SearchMetric"
+    }
+}
