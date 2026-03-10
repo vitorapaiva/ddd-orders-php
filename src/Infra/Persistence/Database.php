@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Orders\Infra\Persistence;
 
-class Database
+class Database implements DatabaseInterface
 {
     private \PDO $pdo;
 

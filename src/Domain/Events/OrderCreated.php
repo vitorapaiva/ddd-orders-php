@@ -15,17 +15,7 @@ final class OrderCreated
     public function __construct(Order $order)
     {
         $this->type = 'order_created';
-        $this->data = [
-            'order_id' => $order->getId(),
-            'customer_id' => $order->getCustomerId(),
-            'items' => array_map(
-                fn($item) => $item->toArray(),
-                $order->getItems()
-            ),
-            'total' => $order->getTotal(),
-            'shipping_address' => $order->getShippingAddress()->toArray(),
-            'billing_address' => $order->getBillingAddress()->toArray(),
-        ];
+        $this->data = $order->toDto()->toEventPayload();
         $this->timestamp = new \DateTimeImmutable();
     }
 

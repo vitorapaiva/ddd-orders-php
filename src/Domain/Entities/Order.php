@@ -4,23 +4,15 @@ declare(strict_types=1);
 
 namespace Orders\Domain\Entities;
 
+use Orders\Domain\DTO\OrderDto;
 use Orders\Domain\ValueObjects\Address;
 use Orders\Domain\ValueObjects\Item;
 use Orders\Domain\ValueObjects\OrderStatus;
+use Orders\Domain\ValueObjects\OrderStatusTransitions;
 use Ramsey\Uuid\Uuid;
 
 class Order
 {
-    private const ALLOWED_TRANSITIONS = [
-        'pending_payment' => ['products_reserved', 'cancelled'],
-        'products_reserved' => ['payment_processed', 'cancelled'],
-        'payment_processed' => ['products_picked', 'cancelled'],
-        'products_picked' => ['shipped', 'cancelled'],
-        'shipped' => ['delivered'],
-        'delivered' => [],
-        'cancelled' => [],
-    ];
-
     private string $id;
     private string $customerId;
     private Address $shippingAddress;
@@ -61,60 +53,14 @@ class Order
         );
     }
 
-    public function getId(): string
-    {
-        return $this->id;
-    }
-
-    public function getCustomerId(): string
-    {
-        return $this->customerId;
-    }
-
-    public function getShippingAddress(): Address
-    {
-        return $this->shippingAddress;
-    }
-
-    public function getBillingAddress(): Address
-    {
-        return $this->billingAddress;
-    }
-
-    public function getItems(): array
-    {
-        return $this->items;
-    }
-
-    public function getTotal(): float
-    {
-        return $this->total;
-    }
-
     public function getStatus(): OrderStatus
     {
         return $this->status;
     }
 
-    public function getCreatedAt(): \DateTimeImmutable
-    {
-        return $this->createdAt;
-    }
-
-    public function getUpdatedAt(): \DateTimeImmutable
-    {
-        return $this->updatedAt;
-    }
-
-    private function canTransitionTo(OrderStatus $newStatus): bool
-    {
-        $allowedTransitions = self::ALLOWED_TRANSITIONS[$this->status->value] ?? [];
-        return in_array($newStatus->value, $allowedTransitions, true);
-    }
-
     public function updateStatus(OrderStatus $newStatus): void
     {
-        if (!$this->canTransitionTo($newStatus)) {
+        if (!OrderStatusTransitions::canTransition($this->status, $newStatus)) {
             throw new \DomainException(
                 "Invalid status transition: {$this->status->value} -> {$newStatus->value}"
             );
@@ -135,18 +81,18 @@ class Order
         );
     }
 
-    public function toArray(): array
+    public function toDto(): OrderDto
     {
-        return [
-            'id' => $this->id,
-            'customer_id' => $this->customerId,
-            'shipping_address' => $this->shippingAddress->toArray(),
-            'billing_address' => $this->billingAddress->toArray(),
-            'items' => array_map(fn(Item $item) => $item->toArray(), $this->items),
-            'total' => $this->total,
-            'status' => $this->status->value,
-            'created_at' => $this->createdAt->format('Y-m-d H:i:s'),
-            'updated_at' => $this->updatedAt->format('Y-m-d H:i:s'),
-        ];
+        return new OrderDto(
+            id: $this->id,
+            customerId: $this->customerId,
+            shippingAddress: $this->shippingAddress->toArray(),
+            billingAddress: $this->billingAddress->toArray(),
+            items: array_map(fn(Item $item) => $item->toArray(), $this->items),
+            total: $this->total,
+            status: $this->status->value,
+            createdAt: $this->createdAt->format('Y-m-d H:i:s'),
+            updatedAt: $this->updatedAt->format('Y-m-d H:i:s'),
+        );
     }
 }

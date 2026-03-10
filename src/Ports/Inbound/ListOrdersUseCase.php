@@ -14,11 +14,6 @@ class ListOrdersUseCase
 
     public function execute(): array
     {
-        $orders = $this->repository->listAll();
-
-        return [
-            'success' => true,
-            'orders' => $orders,
-        ];
+        return $this->repository->listAll();
     }
 }

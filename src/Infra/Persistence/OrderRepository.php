@@ -6,26 +6,21 @@ namespace Orders\Infra\Persistence;
 
 use Orders\Domain\Entities\Order;
 use Orders\Ports\Outbound\OrderRepositoryInterface;
-use Orders\Adapters\Inbound\OrderAdapter as InboundAdapter;
-use Orders\Adapters\Outbound\OrderAdapter as OutboundAdapter;
+use Orders\Adapters\Inbound\OrderDbAdapterInterface as InboundDbAdapter;
+use Orders\Adapters\Outbound\OrderDbAdapterInterface as OutboundDbAdapter;
 
 class OrderRepository implements OrderRepositoryInterface
 {
     public function __construct(
-        private readonly \PDO $pdo
+        private readonly \PDO $pdo,
+        private readonly InboundDbAdapter $inboundDbAdapter,
+        private readonly OutboundDbAdapter $outboundDbAdapter
     ) {}
 
     public function save(Order $order): void
     {
-        $data = OutboundAdapter::orderToDb($order);
-
-        $sql = "
-            INSERT INTO orders 
-            (id, customer_id, shipping_address, billing_address, items, total, status, created_at, updated_at)
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
-        ";
-
-        $stmt = $this->pdo->prepare($sql);
+        $data = $this->outboundDbAdapter->toDb($order);
+        $stmt = $this->pdo->prepare(OrderQueries::INSERT);
         $stmt->execute([
             $data['id'],
             $data['customer_id'],
@@ -41,8 +36,7 @@ class OrderRepository implements OrderRepositoryInterface
 
     public function findById(string $id): ?Order
     {
-        $sql = "SELECT * FROM orders WHERE id = ?";
-        $stmt = $this->pdo->prepare($sql);
+        $stmt = $this->pdo->prepare(OrderQueries::FIND_BY_ID);
         $stmt->execute([$id]);
 
         $row = $stmt->fetch();
@@ -51,15 +45,13 @@ class OrderRepository implements OrderRepositoryInterface
             return null;
         }
 
-        return InboundAdapter::dbToOrder($row);
+        return $this->inboundDbAdapter->toOrder($row);
     }
 
     public function update(Order $order): void
     {
-        $data = OutboundAdapter::orderToDb($order);
-
-        $sql = "UPDATE orders SET status = ?, updated_at = ? WHERE id = ?";
-        $stmt = $this->pdo->prepare($sql);
+        $data = $this->outboundDbAdapter->toDb($order);
+        $stmt = $this->pdo->prepare(OrderQueries::UPDATE_STATUS);
         $stmt->execute([
             $data['status'],
             $data['updated_at'],
@@ -69,12 +61,11 @@ class OrderRepository implements OrderRepositoryInterface
 
     public function listAll(): array
     {
-        $sql = "SELECT * FROM orders ORDER BY created_at DESC";
-        $stmt = $this->pdo->query($sql);
+        $stmt = $this->pdo->query(OrderQueries::LIST_ALL);
 
         $orders = [];
         while ($row = $stmt->fetch()) {
-            $orders[] = InboundAdapter::dbToOrder($row);
+            $orders[] = $this->inboundDbAdapter->toOrder($row);
         }
 
         return $orders;

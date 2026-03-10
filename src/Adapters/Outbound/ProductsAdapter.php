@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Orders\Adapters\Outbound;
 
-class ProductsAdapter
+class ProductsAdapter implements ProductsAdapterInterface
 {
-    public static function itemsToRequest(string $orderId, array $items): array
+    public function itemsToRequest(string $orderId, array $items): array
     {
         return [
             'order_id' => $orderId,
@@ -14,7 +14,7 @@ class ProductsAdapter
         ];
     }
 
-    public static function responseToResult(int $status, ?array $body): array
+    public function responseToResult(int $status, ?array $body): array
     {
         if ($status === 200) {
             return [

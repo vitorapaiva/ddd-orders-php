@@ -16,10 +16,11 @@ final class OrderUpdated
     public function __construct(Order $order, OrderStatus $previousStatus)
     {
         $this->type = 'order_updated';
+        $dto = $order->toDto();
         $this->data = [
-            'order_id' => $order->getId(),
+            'order_id' => $dto->id,
             'previous_status' => $previousStatus->value,
-            'current_status' => $order->getStatus()->value,
+            'current_status' => $dto->status,
         ];
         $this->timestamp = new \DateTimeImmutable();
     }

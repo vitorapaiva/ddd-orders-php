@@ -6,37 +6,28 @@ namespace Orders\Infra\Http;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\GuzzleException;
+use Orders\Adapters\Outbound\ProductsAdapterInterface;
 use Orders\Ports\Outbound\ProductsServiceInterface;
-use Orders\Adapters\Outbound\ProductsAdapter;
 
 class ProductsClient implements ProductsServiceInterface
 {
-    private Client $client;
-
-    public function __construct(string $baseUrl)
-    {
-        $this->client = new Client([
-            'base_uri' => $baseUrl,
-            'timeout' => 30.0,
-            'headers' => [
-                'Content-Type' => 'application/json',
-                'Accept' => 'application/json',
-            ],
-        ]);
-    }
+    public function __construct(
+        private readonly Client $httpClient,
+        private readonly ProductsAdapterInterface $productsAdapter
+    ) {}
 
     public function reserveProducts(string $orderId, array $items): array
     {
         try {
-            $requestBody = ProductsAdapter::itemsToRequest($orderId, $items);
+            $requestBody = $this->productsAdapter->itemsToRequest($orderId, $items);
 
-            $response = $this->client->post('/products/reserve', [
+            $response = $this->httpClient->post('/products/reserve', [
                 'json' => $requestBody,
             ]);
 
             $body = json_decode($response->getBody()->getContents(), true);
 
-            return ProductsAdapter::responseToResult(
+            return $this->productsAdapter->responseToResult(
                 $response->getStatusCode(),
                 $body
             );
@@ -52,9 +43,9 @@ class ProductsClient implements ProductsServiceInterface
     public function releaseReservation(string $orderId): array
     {
         try {
-            $response = $this->client->delete("/products/reserve/{$orderId}");
+            $response = $this->httpClient->delete("/products/reserve/{$orderId}");
 
-            return ProductsAdapter::responseToResult(
+            return $this->productsAdapter->responseToResult(
                 $response->getStatusCode(),
                 null
             );

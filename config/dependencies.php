@@ -3,9 +3,23 @@
 declare(strict_types=1);
 
 use DI\ContainerBuilder;
+use Orders\Adapters\Inbound\OrderJsonAdapter;
+use Orders\Adapters\Inbound\OrderJsonAdapterInterface;
+use Orders\Adapters\Inbound\OrderDbAdapter as InboundOrderDbAdapter;
+use Orders\Adapters\Inbound\OrderDbAdapterInterface as InboundOrderDbAdapterInterface;
+use Orders\Adapters\Outbound\OrderDbAdapter as OutboundOrderDbAdapter;
+use Orders\Adapters\Outbound\OrderDbAdapterInterface as OutboundOrderDbAdapterInterface;
+use Orders\Adapters\Outbound\OrderResponseAdapter;
+use Orders\Adapters\Outbound\OrderResponseAdapterInterface;
+use Orders\Adapters\Outbound\ProductsAdapter;
+use Orders\Adapters\Outbound\ProductsAdapterInterface;
 use Orders\Infra\EventPublisher;
+use Orders\Infra\EventHandlers\OrderCreatedHandler;
+use Orders\Infra\EventHandlers\OrderUpdatedHandler;
 use Orders\Infra\Http\ProductsClient;
+use Orders\Infra\Http\ProductsHttpClientFactory;
 use Orders\Infra\Persistence\Database;
+use Orders\Infra\Persistence\DatabaseInterface;
 use Orders\Infra\Persistence\OrderRepository;
 use Orders\Ports\Outbound\EventPublisherInterface;
 use Orders\Ports\Outbound\OrderRepositoryInterface;
@@ -27,25 +41,65 @@ return function (ContainerBuilder $containerBuilder) {
             ],
         ],
 
-        Database::class => function (ContainerInterface $c) {
+        DatabaseInterface::class => function (ContainerInterface $c) {
             $config = $c->get('config')['db'];
             $database = new Database($config);
             $database->createTables();
             return $database;
         },
 
+        OrderJsonAdapterInterface::class => function () {
+            return new OrderJsonAdapter();
+        },
+
+        InboundOrderDbAdapterInterface::class => function () {
+            return new InboundOrderDbAdapter();
+        },
+
+        OutboundOrderDbAdapterInterface::class => function () {
+            return new OutboundOrderDbAdapter();
+        },
+
+        OrderResponseAdapterInterface::class => function () {
+            return new OrderResponseAdapter();
+        },
+
+        ProductsAdapterInterface::class => function () {
+            return new ProductsAdapter();
+        },
+
         OrderRepositoryInterface::class => function (ContainerInterface $c) {
-            $database = $c->get(Database::class);
-            return new OrderRepository($database->getPdo());
+            $database = $c->get(DatabaseInterface::class);
+            $inboundDbAdapter = $c->get(InboundOrderDbAdapterInterface::class);
+            $outboundDbAdapter = $c->get(OutboundOrderDbAdapterInterface::class);
+            return new OrderRepository(
+                $database->getPdo(),
+                $inboundDbAdapter,
+                $outboundDbAdapter
+            );
         },
 
         ProductsServiceInterface::class => function (ContainerInterface $c) {
             $config = $c->get('config')['products_service'];
-            return new ProductsClient($config['base_url']);
+            $httpClient = ProductsHttpClientFactory::create($config['base_url']);
+            $productsAdapter = $c->get(ProductsAdapterInterface::class);
+            return new ProductsClient($httpClient, $productsAdapter);
         },
 
-        EventPublisherInterface::class => function () {
-            return new EventPublisher();
+        OrderCreatedHandler::class => function (ContainerInterface $c) {
+            $productsService = $c->get(ProductsServiceInterface::class);
+            return new OrderCreatedHandler($productsService);
+        },
+
+        OrderUpdatedHandler::class => function () {
+            return new OrderUpdatedHandler();
+        },
+
+        EventPublisherInterface::class => function (ContainerInterface $c) {
+            return new EventPublisher(
+                $c->get(OrderCreatedHandler::class),
+                $c->get(OrderUpdatedHandler::class)
+            );
         },
     ]);
 };
