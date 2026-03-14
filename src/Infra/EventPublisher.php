@@ -6,14 +6,17 @@ namespace Orders\Infra;
 
 use Orders\Infra\EventHandlers\EventHandlerInterface;
 use Orders\Ports\Outbound\EventPublisherInterface;
+use Psr\Log\LoggerInterface;
 
 class EventPublisher implements EventPublisherInterface
 {
     /** @var EventHandlerInterface[] */
     private array $handlers;
 
-    public function __construct(EventHandlerInterface ...$handlers)
-    {
+    public function __construct(
+        private readonly LoggerInterface $logger,
+        EventHandlerInterface ...$handlers
+    ) {
         $this->handlers = $handlers;
     }
 
@@ -34,8 +37,10 @@ class EventPublisher implements EventPublisherInterface
             ? $event->toArray()
             : (array) $event;
 
-        echo ">>> Event published: {$eventArray['type']}\n";
-        echo "    Data: " . json_encode($eventArray['data'], JSON_PRETTY_PRINT) . "\n";
-        echo "    Timestamp: {$eventArray['timestamp']}\n";
+        $this->logger->info('Event published', [
+            'type' => $eventArray['type'] ?? 'unknown',
+            'data' => $eventArray['data'] ?? [],
+            'timestamp' => $eventArray['timestamp'] ?? null,
+        ]);
     }
 }

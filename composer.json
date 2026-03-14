@@ -4,6 +4,7 @@
     "type": "project",
     "require": {
         "php": "^8.5",
+        "monolog/monolog": "^3.5",
         "slim/slim": "^4.12",
         "slim/psr7": "^1.6",
         "php-di/php-di": "^7.0",
@@ -26,6 +27,10 @@
     },
     "scripts": {
         "start": "php -S localhost:3000 -t public",
-        "test": "phpunit"
+        "test": "phpunit",
+        "metrics": [
+            "phpunit",
+            "phpmetrics --report-html=./phpmetrics-report --junit=build/phpunit-junit.xml src/"
+        ]
     }
 }

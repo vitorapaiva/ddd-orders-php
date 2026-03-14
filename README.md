@@ -1,67 +1,30 @@
 # DDD Orders - PHP
 
-Serviço de Pedidos implementado em PHP seguindo Domain-Driven Design e Arquitetura Hexagonal.
+Order service implemented in PHP following Domain-Driven Design and Hexagonal Architecture.
 
-## Estrutura do Projeto
+## Hexagonal Architecture
 
-```
-src/
-├── Domain/                         # Núcleo do Domínio
-│   ├── Entities/
-│   │   └── Pedido.php              # Entidade Pedido (raiz do agregado)
-│   ├── ValueObjects/
-│   │   ├── Endereco.php            # Objeto de Valor Endereço
-│   │   ├── Item.php                # Objeto de Valor Item
-│   │   └── StatusPedido.php        # Enum de Status
-│   └── Events/
-│       ├── PedidoCriado.php        # Evento de domínio
-│       └── PedidoAtualizado.php    # Evento de domínio
-├── Ports/                          # Portas (Interfaces)
-│   ├── Inbound/                    # Casos de Uso
-│   │   ├── FecharPedidoUseCase.php
-│   │   ├── AtualizarStatusPedidoUseCase.php
-│   │   ├── ConsultarPedidoUseCase.php
-│   │   └── ListarPedidosUseCase.php
-│   └── Outbound/                   # Interfaces para mundo externo
-│       ├── PedidoRepositoryInterface.php
-│       ├── ProdutosServiceInterface.php
-│       └── EventPublisherInterface.php
-└── Adapters/                       # Adaptadores (Implementações)
-    ├── Inbound/
-    │   └── Http/                   # Controllers REST
-    │       ├── FecharPedidoController.php
-    │       ├── ListarPedidosController.php
-    │       ├── ConsultarPedidoController.php
-    │       └── AtualizarStatusController.php
-    └── Outbound/
-        ├── MySQLPedidoRepository.php
-        ├── HttpProdutosClient.php
-        └── ConsoleEventPublisher.php
-```
+### Core (Domain)
+The core contains business rules, isolated from technical details:
+- **Entities**: Classes with identity and behavior (Order)
+- **Value Objects**: Immutable classes defined by attributes (Address, Item)
+- **Events**: Facts that occurred in the domain
 
-## Arquitetura Hexagonal
+### Ports
+Interfaces that define how the core communicates with the outside world:
+- **Inbound**: Use cases (FecharPedidoUseCase, etc.)
+- **Outbound**: PHP interfaces (PedidoRepositoryInterface, etc.)
 
-### Núcleo (Domain)
-O núcleo contém as regras de negócio, isolado de detalhes técnicos:
-- **Entidades**: Classes com identidade e comportamento (Pedido)
-- **Objetos de Valor**: Classes imutáveis definidas por atributos (Endereco, Item)
-- **Eventos**: Fatos que ocorreram no domínio
-
-### Portas (Ports)
-Interfaces que definem como o núcleo se comunica com o mundo externo:
-- **Inbound**: Casos de uso (FecharPedidoUseCase, etc.)
-- **Outbound**: Interfaces PHP (PedidoRepositoryInterface, etc.)
-
-### Adaptadores (Adapters)
-Implementações concretas das portas:
-- **HTTP**: Controllers Slim Framework
-- **MySQL**: Repositório com PDO
-- **HTTP Client**: Guzzle para serviço de Produtos
+### Adapters
+Concrete implementations of the ports:
+- **HTTP**: Slim Framework controllers
+- **MySQL**: Repository with PDO
+- **HTTP Client**: Guzzle for Products service
 
 ## API
 
-### POST /order/close
-Fecha um novo pedido.
+### POST /orders/close
+Closes a new order.
 
 **Request:**
 ```json
@@ -94,29 +57,29 @@ Fecha um novo pedido.
 ```
 
 ### GET /pedidos
-Lista todos os pedidos.
+Lists all orders.
 
 ### GET /pedidos/{id}
-Consulta um pedido por ID.
+Gets an order by ID.
 
 ### PUT /pedidos/{id}/status
-Atualiza o status de um pedido.
+Updates an order status.
 
-## Executando
+## Running
 
 ```bash
-# Instalar dependências
+# Install dependencies
 composer install
 
-# Iniciar servidor
+# Start server
 composer start
-# ou
+# or
 php -S localhost:3000 -t public
 ```
 
-## Banco de Dados
+## Database
 
-O serviço cria automaticamente a tabela `pedidos` no MySQL.
+The service automatically creates the `pedidos` table in MySQL.
 
 ```sql
 CREATE TABLE IF NOT EXISTS pedidos (
@@ -132,7 +95,7 @@ CREATE TABLE IF NOT EXISTS pedidos (
 );
 ```
 
-## Variáveis de Ambiente
+## Environment Variables
 
 ```env
 DB_HOST=localhost

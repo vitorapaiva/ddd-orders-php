@@ -9,10 +9,11 @@ use Orders\Adapters\Inbound\OrderDbAdapter as InboundOrderDbAdapter;
 use Orders\Adapters\Inbound\OrderDbAdapterInterface as InboundOrderDbAdapterInterface;
 use Orders\Adapters\Outbound\OrderDbAdapter as OutboundOrderDbAdapter;
 use Orders\Adapters\Outbound\OrderDbAdapterInterface as OutboundOrderDbAdapterInterface;
-use Orders\Adapters\Outbound\OrderResponseAdapter;
-use Orders\Adapters\Outbound\OrderResponseAdapterInterface;
 use Orders\Adapters\Outbound\ProductsAdapter;
 use Orders\Adapters\Outbound\ProductsAdapterInterface;
+use Monolog\Handler\StreamHandler;
+use Monolog\Level;
+use Monolog\Logger;
 use Orders\Infra\EventPublisher;
 use Orders\Infra\EventHandlers\OrderCreatedHandler;
 use Orders\Infra\EventHandlers\OrderUpdatedHandler;
@@ -25,9 +26,22 @@ use Orders\Ports\Outbound\EventPublisherInterface;
 use Orders\Ports\Outbound\OrderRepositoryInterface;
 use Orders\Ports\Outbound\ProductsServiceInterface;
 use Psr\Container\ContainerInterface;
+use Psr\Http\Message\ResponseFactoryInterface;
+use Psr\Log\LoggerInterface;
+use Slim\Psr7\Factory\ResponseFactory;
 
 return function (ContainerBuilder $containerBuilder) {
     $containerBuilder->addDefinitions([
+        ResponseFactoryInterface::class => function () {
+            return new ResponseFactory();
+        },
+
+        \Orders\Infra\Http\ExceptionHandlingMiddleware::class => function (ContainerInterface $c) {
+            return new \Orders\Infra\Http\ExceptionHandlingMiddleware(
+                $c->get(ResponseFactoryInterface::class)
+            );
+        },
+
         'config' => [
             'db' => [
                 'host' => $_ENV['DB_HOST'] ?? 'localhost',
@@ -58,10 +72,6 @@ return function (ContainerBuilder $containerBuilder) {
 
         OutboundOrderDbAdapterInterface::class => function () {
             return new OutboundOrderDbAdapter();
-        },
-
-        OrderResponseAdapterInterface::class => function () {
-            return new OrderResponseAdapter();
         },
 
         ProductsAdapterInterface::class => function () {
@@ -95,8 +105,15 @@ return function (ContainerBuilder $containerBuilder) {
             return new OrderUpdatedHandler();
         },
 
+        LoggerInterface::class => function () {
+            $logger = new Logger('orders');
+            $logger->pushHandler(new StreamHandler('php://stdout', Level::Info));
+            return $logger;
+        },
+
         EventPublisherInterface::class => function (ContainerInterface $c) {
             return new EventPublisher(
+                $c->get(LoggerInterface::class),
                 $c->get(OrderCreatedHandler::class),
                 $c->get(OrderUpdatedHandler::class)
             );

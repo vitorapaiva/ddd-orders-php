@@ -18,6 +18,7 @@ AppFactory::setContainer($container);
 $app = AppFactory::create();
 
 $app->addBodyParsingMiddleware();
+$app->add(\Orders\Infra\Http\ExceptionHandlingMiddleware::class);
 $app->addErrorMiddleware(true, true, true);
 
 $routes = require __DIR__ . '/../config/routes.php';

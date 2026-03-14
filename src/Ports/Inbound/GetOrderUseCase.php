@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Orders\Ports\Inbound;
 
 use Orders\Domain\Entities\Order;
+use Orders\Domain\Exceptions\OrderNotFoundException;
 use Orders\Ports\Outbound\OrderRepositoryInterface;
 
 class GetOrderUseCase
@@ -18,7 +19,7 @@ class GetOrderUseCase
         $order = $this->repository->findById($orderId);
 
         if ($order === null) {
-            throw new \DomainException('Order not found');
+            throw new OrderNotFoundException($orderId);
         }
 
         return $order;

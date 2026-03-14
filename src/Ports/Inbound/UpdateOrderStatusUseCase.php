@@ -6,6 +6,7 @@ namespace Orders\Ports\Inbound;
 
 use Orders\Domain\Entities\Order;
 use Orders\Domain\Events\OrderUpdated;
+use Orders\Domain\Exceptions\OrderNotFoundException;
 use Orders\Domain\ValueObjects\OrderStatus;
 use Orders\Ports\Outbound\OrderRepositoryInterface;
 use Orders\Ports\Outbound\EventPublisherInterface;
@@ -22,7 +23,7 @@ class UpdateOrderStatusUseCase
         $order = $this->repository->findById($orderId);
 
         if ($order === null) {
-            throw new \DomainException('Order not found');
+            throw new OrderNotFoundException($orderId);
         }
 
         $previousStatus = $order->getStatus();

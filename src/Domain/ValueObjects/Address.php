@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Orders\Domain\ValueObjects;
 
+use Orders\Domain\Validation\ValidationHelper;
+
 final class Address
 {
     public function __construct(
@@ -73,15 +75,24 @@ final class Address
 
     public static function fromArray(array $data): self
     {
+        ValidationHelper::requireKeys($data, ['street_type', 'street_name', 'number', 'district', 'city', 'state', 'zip_code'], 'Address');
+        foreach (['street_type', 'street_name', 'number', 'district', 'city', 'state', 'zip_code'] as $key) {
+            ValidationHelper::requireNonEmpty($data, $key, "Address field '{$key}' is required");
+        }
+
+        if (strlen($data['state']) !== 2) {
+            throw new \InvalidArgumentException("Address state must be 2 characters (e.g. SP)");
+        }
+
         return new self(
-            streetType: $data['street_type'],
-            streetName: $data['street_name'],
-            number: $data['number'],
-            complement: $data['complement'] ?? null,
-            district: $data['district'],
-            city: $data['city'],
-            state: $data['state'],
-            zipCode: $data['zip_code']
+            streetType: (string) $data['street_type'],
+            streetName: (string) $data['street_name'],
+            number: (string) $data['number'],
+            complement: isset($data['complement']) ? (string) $data['complement'] : null,
+            district: (string) $data['district'],
+            city: (string) $data['city'],
+            state: (string) $data['state'],
+            zipCode: (string) $data['zip_code']
         );
     }
 }

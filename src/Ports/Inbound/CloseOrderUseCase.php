@@ -26,12 +26,10 @@ class CloseOrderUseCase
             items: $orderData['items']
         );
 
-        $this->repository->save($order);
-
         $this->eventPublisher->publish(new OrderCreated($order));
 
         $order->updateStatus(OrderStatus::PRODUCTS_RESERVED);
-        $this->repository->update($order);
+        $this->repository->save($order);
 
         return $order;
     }

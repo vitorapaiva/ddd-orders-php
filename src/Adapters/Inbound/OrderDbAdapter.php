@@ -17,6 +17,10 @@ class OrderDbAdapter implements OrderDbAdapterInterface
         $billingAddressData = json_decode($row['billing_address'], true);
         $itemsData = json_decode($row['items'], true);
 
+        if (!is_array($shippingAddressData) || !is_array($billingAddressData) || !is_array($itemsData)) {
+            throw new \RuntimeException('Invalid order data in database');
+        }
+
         return new Order(
             customerId: $row['customer_id'],
             shippingAddress: Address::fromArray($shippingAddressData),

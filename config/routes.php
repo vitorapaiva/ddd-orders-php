@@ -9,7 +9,7 @@ use Orders\Infra\Http\Handlers\ListOrdersHandler;
 use Slim\App;
 
 return function (App $app) {
-    $app->post('/order/close', CloseOrderHandler::class);
+    $app->post('/orders/close', CloseOrderHandler::class);
     $app->get('/orders', ListOrdersHandler::class);
     $app->get('/orders/{id}', GetOrderHandler::class);
     $app->put('/orders/{id}/status', UpdateStatusHandler::class);

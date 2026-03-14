@@ -33,6 +33,13 @@ class Order
         ?\DateTimeImmutable $createdAt = null,
         ?\DateTimeImmutable $updatedAt = null
     ) {
+        if (trim($customerId) === '') {
+            throw new \InvalidArgumentException('Customer ID is required');
+        }
+        if (empty($items)) {
+            throw new \InvalidArgumentException('Order must contain at least one item');
+        }
+
         $this->id = $id ?? Uuid::uuid4()->toString();
         $this->customerId = $customerId;
         $this->shippingAddress = $shippingAddress;
@@ -68,17 +75,6 @@ class Order
 
         $this->status = $newStatus;
         $this->updatedAt = new \DateTimeImmutable();
-    }
-
-    public function getProductsForReservation(): array
-    {
-        return array_map(
-            fn(Item $item) => [
-                'product_id' => $item->getProductId(),
-                'quantity' => $item->getQuantity(),
-            ],
-            $this->items
-        );
     }
 
     public function toDto(): OrderDto

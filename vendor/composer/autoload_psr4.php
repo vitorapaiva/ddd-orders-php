@@ -18,6 +18,7 @@ return array(
     'PhpParser\\' => array($vendorDir . '/nikic/php-parser/lib/PhpParser'),
     'Orders\\Tests\\' => array($baseDir . '/tests'),
     'Orders\\' => array($baseDir . '/src'),
+    'Monolog\\' => array($vendorDir . '/monolog/monolog/src/Monolog'),
     'Laravel\\SerializableClosure\\' => array($vendorDir . '/laravel/serializable-closure/src'),
     'Invoker\\' => array($vendorDir . '/php-di/invoker/src'),
     'GuzzleHttp\\Psr7\\' => array($vendorDir . '/guzzlehttp/psr7/src'),

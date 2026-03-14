@@ -43,6 +43,10 @@ class ComposerStaticInitfa70b03432a511d6e3e1b0eb50809ca3
             'Orders\\Tests\\' => 13,
             'Orders\\' => 7,
         ),
+        'M' =>
+        array (
+            'Monolog\\' => 8,
+        ),
         'L' =>
         array (
             'Laravel\\SerializableClosure\\' => 28,
@@ -123,6 +127,10 @@ class ComposerStaticInitfa70b03432a511d6e3e1b0eb50809ca3
         'Orders\\' =>
         array (
             0 => __DIR__ . '/../..' . '/src',
+        ),
+        'Monolog\\' =>
+        array (
+            0 => __DIR__ . '/..' . '/monolog/monolog/src/Monolog',
         ),
         'Laravel\\SerializableClosure\\' =>
         array (
