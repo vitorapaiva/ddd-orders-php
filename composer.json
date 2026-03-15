@@ -1,6 +1,6 @@
 {
     "name": "tcc/ddd-orders-php",
-    "description": "Serviço de Pedidos implementado em PHP com DDD e Arquitetura Hexagonal",
+    "description": "Order service implemented in PHP with DDD and Hexagonal Architecture",
     "type": "project",
     "require": {
         "php": "^8.5",

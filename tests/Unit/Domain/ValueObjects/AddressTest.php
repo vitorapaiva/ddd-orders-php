@@ -15,22 +15,22 @@ class AddressTest extends TestCase
         $data = TestHelpers::validOrderData()['shipping_address'];
         $address = Address::fromArray($data);
 
-        $this->assertSame('Rua', $address->getStreetType());
+        $this->assertSame('Street', $address->getStreetType());
         $this->assertSame('X', $address->getStreetName());
         $this->assertSame('1', $address->getNumber());
         $this->assertSame('Y', $address->getDistrict());
         $this->assertSame('Z', $address->getCity());
-        $this->assertSame('SP', $address->getState());
+        $this->assertSame('NY', $address->getState());
         $this->assertSame('01234-567', $address->getZipCode());
     }
 
     public function testFromArrayWithComplement(): void
     {
         $data = TestHelpers::validOrderData()['shipping_address'];
-        $data['complement'] = 'Apto 1';
+        $data['complement'] = 'Apt 1';
         $address = Address::fromArray($data);
 
-        $this->assertSame('Apto 1', $address->getComplement());
+        $this->assertSame('Apt 1', $address->getComplement());
     }
 
     public function testFromArrayThrowsWhenRequiredFieldMissing(): void
@@ -62,6 +62,6 @@ class AddressTest extends TestCase
 
         $this->assertArrayHasKey('street_type', $arr);
         $this->assertArrayHasKey('zip_code', $arr);
-        $this->assertSame('SP', $arr['state']);
+        $this->assertSame('NY', $arr['state']);
     }
 }

@@ -12,8 +12,8 @@ The core contains business rules, isolated from technical details:
 
 ### Ports
 Interfaces that define how the core communicates with the outside world:
-- **Inbound**: Use cases (FecharPedidoUseCase, etc.)
-- **Outbound**: PHP interfaces (PedidoRepositoryInterface, etc.)
+- **Inbound**: Use cases (CloseOrderUseCase, etc.)
+- **Outbound**: PHP interfaces (OrderRepositoryInterface, etc.)
 
 ### Adapters
 Concrete implementations of the ports:
@@ -29,40 +29,40 @@ Closes a new order.
 **Request:**
 ```json
 {
-  "cliente_id": "uuid-do-cliente",
-  "endereco_entrega": {
-    "tipo_logradouro": "Rua",
-    "nome_logradouro": "das Flores",
-    "numero": "123",
-    "complemento": "Apto 45",
-    "bairro": "Centro",
-    "cidade": "São Paulo",
-    "estado": "SP",
-    "cep": "01234-567"
+  "customer_id": "customer-uuid",
+  "shipping_address": {
+    "street_type": "Street",
+    "street_name": "Main",
+    "number": "123",
+    "complement": "Apt 45",
+    "district": "Center",
+    "city": "New York",
+    "state": "NY",
+    "zip_code": "01234-567"
   },
-  "endereco_cobranca": {
-    "tipo_logradouro": "Rua",
-    "nome_logradouro": "das Flores",
-    "numero": "123",
-    "complemento": "Apto 45",
-    "bairro": "Centro",
-    "cidade": "São Paulo",
-    "estado": "SP",
-    "cep": "01234-567"
+  "billing_address": {
+    "street_type": "Street",
+    "street_name": "Main",
+    "number": "123",
+    "complement": "Apt 45",
+    "district": "Center",
+    "city": "New York",
+    "state": "NY",
+    "zip_code": "01234-567"
   },
-  "itens": [
-    {"produto_id": "uuid-produto", "quantidade": 2, "preco": 29.90}
+  "items": [
+    {"product_id": "product-uuid", "quantity": 2, "price": 29.90}
   ]
 }
 ```
 
-### GET /pedidos
+### GET /orders
 Lists all orders.
 
-### GET /pedidos/{id}
+### GET /orders/{id}
 Gets an order by ID.
 
-### PUT /pedidos/{id}/status
+### PUT /orders/{id}/status
 Updates an order status.
 
 ## Running
@@ -79,19 +79,19 @@ php -S localhost:3000 -t public
 
 ## Database
 
-The service automatically creates the `pedidos` table in MySQL.
+The service automatically creates the `orders` table in MySQL.
 
 ```sql
-CREATE TABLE IF NOT EXISTS pedidos (
+CREATE TABLE IF NOT EXISTS orders (
   id VARCHAR(36) PRIMARY KEY,
-  cliente_id VARCHAR(36) NOT NULL,
-  endereco_entrega JSON NOT NULL,
-  endereco_cobranca JSON NOT NULL,
-  itens JSON NOT NULL,
-  valor_total DECIMAL(10, 2) NOT NULL,
+  customer_id VARCHAR(36) NOT NULL,
+  shipping_address JSON NOT NULL,
+  billing_address JSON NOT NULL,
+  items JSON NOT NULL,
+  total DECIMAL(10, 2) NOT NULL,
   status VARCHAR(50) NOT NULL,
-  criado_em TIMESTAMP NOT NULL,
-  atualizado_em TIMESTAMP NOT NULL
+  created_at TIMESTAMP NOT NULL,
+  updated_at TIMESTAMP NOT NULL
 );
 ```
 

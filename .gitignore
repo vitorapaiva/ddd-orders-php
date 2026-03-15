@@ -1,0 +1,9 @@
+.phpunit.cache
+.phpunit.result.cache
+vendor/
+phpmetrics-report/
+build/
+.env
+*.log
+.idea/
+.vscode/

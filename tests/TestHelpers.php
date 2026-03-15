@@ -17,13 +17,13 @@ final class TestHelpers
     public static function validAddress(): Address
     {
         return Address::fromArray([
-            'street_type' => 'Rua',
+            'street_type' => 'Street',
             'street_name' => 'X',
             'number' => '1',
             'complement' => null,
             'district' => 'Y',
             'city' => 'Z',
-            'state' => 'SP',
+            'state' => 'NY',
             'zip_code' => '01234-567',
         ]);
     }
@@ -31,13 +31,13 @@ final class TestHelpers
     public static function validOrderData(): array
     {
         $address = [
-            'street_type' => 'Rua',
+            'street_type' => 'Street',
             'street_name' => 'X',
             'number' => '1',
             'complement' => null,
             'district' => 'Y',
             'city' => 'Z',
-            'state' => 'SP',
+            'state' => 'NY',
             'zip_code' => '01234-567',
         ];
         return [

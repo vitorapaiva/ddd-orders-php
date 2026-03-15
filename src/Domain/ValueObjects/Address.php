@@ -81,7 +81,7 @@ final class Address
         }
 
         if (strlen($data['state']) !== 2) {
-            throw new \InvalidArgumentException("Address state must be 2 characters (e.g. SP)");
+            throw new \InvalidArgumentException("Address state must be 2 characters (e.g. NY)");
         }
 
         return new self(
